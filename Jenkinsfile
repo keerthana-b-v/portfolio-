@@ -1,12 +1,20 @@
-// Jenkinsfile for your portfolio
+// Your new, more powerful Jenkinsfile
 pipeline {
-    agent any // Run on any available machine
+    agent any
 
     stages {
-        stage('Success!') {
+        stage('Build') {
             steps {
-                echo 'It worked!'
-                echo 'Jenkins successfully connected to your portfolio project.'
+                echo 'Installing dependencies...'
+                // Use 'bat' because you are on Windows
+                bat 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                // This runs the "test": "jest" command from your package.json
+                bat 'npm test'
             }
         }
     }
