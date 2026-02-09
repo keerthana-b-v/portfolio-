@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond the Prompt: AI Runtimes Explained | Blog</title>
+    <meta name="description"
+        content="A deep dive into WebContainers, Micro-Sandboxes, and how tools like Bolt and v0 run code in the browser.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="noise-bg"></div>
+    <div class="progress-bar"></div>
+
+    <header class="header-nav visible">
+        <div class="nav-logo">Keerthana B V</div>
+        <nav class="quick-jump">
+            <a href="index.html#about">About</a>
+            <a href="index.html#skills">Expertise</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#research">Research</a>
+            <a href="index.html#education">Education</a>
+            <a href="blog.html" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <main class="container blog-post">
+        <article>
+            <span class="blog-meta">February 2026 / AI Engineering</span>
+            <h1 class="blog-title">Beyond the Prompt: How AI Tools Like Bolt and v0 Run Code Without a Localhost</h1>
+            <p class="blog-subtitle">A deep dive into WebContainers, Micro-Sandboxes, and the new era of runtimes.</p>
+
+            <div class="tldr-box">
+                <strong>TL;DR</strong>
+                <p>Modern AI coding tools use two distinct architectures to achieve "instant" previews.
+                    <strong>Bolt.new</strong> uses <strong>WebContainers</strong> (Node.js inside the browser), while
+                    tools like <strong>Lovable</strong> use <strong>Micro-Sandboxes</strong> (instant server-side
+                    environments). Both eliminate the need for local setup.</p>
+            </div>
+
+            <div class="blog-content">
+                <h4>1. The "Wait, Where's My Terminal?" Moment</h4>
+                <p>We are used to the ritual: open terminal, <code>cd project</code>, <code>npm install</code>, and
+                    watch the loading bars for 2 minutes. Yet, when I ask <strong>Bolt.new</strong> for a landing page,
+                    it appears in 400 milliseconds.</p>
+                <p>There is no terminal. There is no loading bar. Where did the runtime go?</p>
+                <p>I analyzed the network traffic of these tools to find out. It turns out, there are <strong>two
+                        ways</strong> this magic happens.</p>
+
+                <h4>2. Environment Type A: The Browser Is The Computer (Bolt.new)</h4>
+                <p>The breakthrough technology here is <strong>WebContainers</strong> (pioneered by StackBlitz).</p>
+                <p>They didn't just build a better chatbot. They managed to compile <strong>Node.js</strong> into
+                    <strong>WebAssembly (WASM)</strong>.</p>
+                <ul>
+                    <li><strong>The Architecture:</strong> When you use Bolt, the "server" is actually running inside
+                        your Chrome tab.</li>
+                    <li><strong>The Proof:</strong> Open your Chrome DevTools Network tab. You won't see requests
+                        fetching HTML from a remote server. You will see <em>Service Workers</em> intercepting requests
+                        locally.</li>
+                    <li><strong>The Speed:</strong> It boots in milliseconds because it never leaves your RAM.</li>
+                </ul>
+
+                <h4>3. Environment Type B: The Instant Cloud Sandbox (Lovable/Replit)</h4>
+                <p>Other tools like <strong>Lovable</strong> take a different approach. They don't run Node.js in your
+                    browser (because browsers have limits). Instead, they use <strong>Micro-Sandboxes</strong>.</p>
+                <ul>
+                    <li><strong>The Architecture:</strong> They spin up a tiny, isolated environment (likely using
+                        Firecracker microVMs or similar tech) on a server edge node.</li>
+                    <li><strong>The Difference:</strong> It <em>feels</em> local because it boots in &lt;1 second, but
+                        the code is actually executing on their cloud, not your laptop. This allows them to run heavy
+                        backend tasks that a browser can't handle.</li>
+                </ul>
+
+                <div class="architecture-viz">
+                    <div class="viz-card">
+                        <span class="viz-label">Client Runtime</span>
+                        <div class="viz-title">Browser Container (WASM)</div>
+                        <p class="viz-desc">Bolt.new, v0.dev. Node.js compiled to WebAssembly. Runs entirely in your
+                            browser RAM.</p>
+                    </div>
+                    <div class="viz-card">
+                        <span class="viz-label">Server Runtime</span>
+                        <div class="viz-title">Micro-Sandbox (Edge)</div>
+                        <p class="viz-desc">Lovable, Replit. Instant Firecracker VMs at the edge. Heavy lifting on
+                            high-perf servers.</p>
+                    </div>
+                </div>
+
+                <h4>4. The 4-Step Process (How It Feels)</h4>
+                <p>Regardless of the architecture, the user experience is the same "Agentic Flow":</p>
+                <ol>
+                    <li><strong>The Architect:</strong> The AI plans a <strong>Virtual File System</strong> (JSON).</li>
+                    <li><strong>The Mount:</strong> The system "mounts" this JSON as a fake hard drive.</li>
+                    <li><strong>The Runtime:</strong>
+                        <ul>
+                            <li><em>Browser Method:</em> Boots WebContainer.</li>
+                            <li><em>Server Method:</em> Boots Micro-Sandbox.</li>
+                        </ul>
+                    </li>
+                    <li><strong>The Stream:</strong> The result is piped instantly to your preview window.</li>
+                </ol>
+
+                <h4>5. Comparison: Who Uses What?</h4>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Environment</th>
+                            <th>Runtime Location</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Bolt.new</strong></td>
+                            <td>WebContainers</td>
+                            <td>Browser (Client)</td>
+                            <td>Full-Stack JS Apps. Zero server cost.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>v0.dev</strong></td>
+                            <td>Client Runtime</td>
+                            <td>Browser (Client)</td>
+                            <td>UI Prototypes & React Components.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lovable</strong></td>
+                            <td>Micro-Sandbox</td>
+                            <td>Server (Edge)</td>
+                            <td>Rapid Iteration & Backend Logic.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Replit</strong></td>
+                            <td>Cloud Container</td>
+                            <td>Server (Cloud)</td>
+                            <td>Heavy Apps (Python, Docker, DBs).</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>6. Why This Matters</h4>
+                <p>This isn't just cool tech; it's a business revolution.</p>
+                <ul>
+                    <li><strong>Browser Runtimes (Bolt/v0)</strong> save companies millions because <em>your</em> laptop
+                        does the work.</li>
+                    <li><strong>Server Sandboxes (Lovable)</strong> allow for more powerful apps but cost the company
+                        more to run.</li>
+                </ul>
+
+                <p><strong>Built something similar?</strong> Check out my project <strong>TRIUSS</strong>, an
+                    AI-architect that uses this exact stack to generate "Business DNA" for websites.</p>
+
+                <p><strong>Hire me for AI/Web Engineering:</strong> <a href="index.html#contact">Contact Me</a></p>
+                <p><strong>Check out the GitHub:</strong> <a href="https://github.com/keerthana-b-v" target="_blank">My
+                        Profile</a></p>
+            </div>
+        </article>
+
+        <footer style="margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--divider-color);">
+            <a href="index.html" class="skip-btn">
+                <span class="arrow">←</span> Back to Portfolio
+            </a>
+        </footer>
+    </main>
+
+    <script src="index.js"></script>
+    <script>
+        // Progress bar logic
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.querySelector(".progress-bar").style.width = scrolled + "%";
+        };
+    </script>
+</body>
+
+</html>

@@ -82,25 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(checkInitialReveal, 1000);
 
     /**
-     * ✨ Interactive Card Glow
-     */
-    const cards = document.querySelectorAll('.project-item, .timeline-item');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
-    });
-
-    /**
      * Smooth Scroll
      */
     jumpLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
+
+            // Only handle smooth scroll for local anchors
             if (href && href.startsWith('#')) {
                 e.preventDefault();
                 const targetSection = document.querySelector(href);
@@ -109,13 +97,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         top: targetSection.offsetTop - 100,
                         behavior: 'smooth'
                     });
+                } else if (window.location.pathname !== '/' && !window.location.pathname.includes('index.html')) {
+                    // If we're on blog.html and click a hash link, go to index.html with that hash
+                    window.location.href = 'index.html' + href;
                 }
             }
+            // For non-anchor links (like blog.html), let the default navigation happen
         });
     });
 
     /**
-     * ⌨️ Subtle blinking cursor
+     * ⌨️ Subtle blinking cursor (Blinking text bar)
      */
     const heroRole = document.querySelector('.hero-role');
     if (heroRole) {
