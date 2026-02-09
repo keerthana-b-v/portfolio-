@@ -82,24 +82,40 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(checkInitialReveal, 1000);
 
     /**
+     * ✨ Interactive Card Glow
+     */
+    const cards = document.querySelectorAll('.project-item, .timeline-item');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    /**
      * Smooth Scroll
      */
     jumpLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 100,
-                    behavior: 'smooth'
-                });
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(href);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
 
     /**
-     * ⌨️ Subtle blinking cursor (Blinking text bar)
+     * ⌨️ Subtle blinking cursor
      */
     const heroRole = document.querySelector('.hero-role');
     if (heroRole) {
