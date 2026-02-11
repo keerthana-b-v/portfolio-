@@ -18,7 +18,7 @@
     <div class="progress-bar"></div>
 
     <header class="header-nav visible">
-        <div class="nav-logo">Keerthana B V</div>
+        <a href="index.html" class="nav-logo" style="text-decoration: none; cursor: pointer;">Keerthana B V</a>
         <nav class="quick-jump">
             <a href="index.html#about">About</a>
             <a href="index.html#skills">Expertise</a>
@@ -27,6 +27,9 @@
             <a href="index.html#education">Education</a>
             <a href="blog.html" class="active">Blog</a>
         </nav>
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <span class="hamburger-icon"></span>
+        </button>
     </header>
 
     <main class="container blog-post">
@@ -40,10 +43,23 @@
                 <p>Modern AI coding tools use two distinct architectures to achieve "instant" previews.
                     <strong>Bolt.new</strong> uses <strong>WebContainers</strong> (Node.js inside the browser), while
                     tools like <strong>Lovable</strong> use <strong>Micro-Sandboxes</strong> (instant server-side
-                    environments). Both eliminate the need for local setup.</p>
+                    environments). Both eliminate the need for local setup.
+                </p>
             </div>
 
             <div class="blog-content">
+                <div class="blog-author-bar"
+                    style="display: flex; align-items: center; gap: 12px; padding-bottom: 24px; border-bottom: 1px solid var(--border-color);">
+                    <div
+                        style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                        K</div>
+                    <div>
+                        <div style="font-weight: 700; color: var(--text-primary);">Keerthana B V</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">Software Developer & AI Engineer
+                            • 5 min read</div>
+                    </div>
+                </div>
+
                 <h4>1. The "Wait, Where's My Terminal?" Moment</h4>
                 <p>We are used to the ritual: open terminal, <code>cd project</code>, <code>npm install</code>, and
                     watch the loading bars for 2 minutes. Yet, when I ask <strong>Bolt.new</strong> for a landing page,
@@ -53,9 +69,50 @@
                         ways</strong> this magic happens.</p>
 
                 <h4>2. Environment Type A: The Browser Is The Computer (Bolt.new)</h4>
-                <p>The breakthrough technology here is <strong>WebContainers</strong> (pioneered by StackBlitz).</p>
-                <p>They didn't just build a better chatbot. They managed to compile <strong>Node.js</strong> into
-                    <strong>WebAssembly (WASM)</strong>.</p>
+                <p>The breakthrough technology here is <strong>WebContainers</strong> (pioneered by StackBlitz). They
+                    didn't just build a better chatbot. They managed to compile <strong>Node.js</strong> into
+                    <strong>WebAssembly (WASM)</strong>.
+                </p>
+
+                <figure class="blog-image-container">
+                    <!-- Custom SVG Diagram for WebContainers -->
+                    <svg viewBox="0 0 800 450" class="blog-image"
+                        style="background: #f8fafc; width: 100%; height: auto;">
+                        <!-- Browser Frame -->
+                        <rect x="50" y="50" width="700" height="350" rx="10" fill="#fff" stroke="#cbd5e1"
+                            stroke-width="2" />
+                        <text x="70" y="90" font-family="sans-serif" font-weight="bold" fill="#475569">Chrome Browser
+                            Tab</text>
+
+                        <!-- WebContainer Box -->
+                        <rect x="100" y="120" width="600" height="250" rx="8" fill="#eff6ff" stroke="#2563eb"
+                            stroke-width="2" stroke-dasharray="5,5" />
+                        <text x="120" y="150" font-family="sans-serif" font-weight="bold" fill="#2563eb">WebContainer
+                            (WASM)</text>
+
+                        <!-- Internal Components -->
+                        <rect x="150" y="180" width="200" height="100" rx="5" fill="#2563eb" />
+                        <text x="250" y="235" font-family="sans-serif" text-anchor="middle" fill="#fff"
+                            font-weight="bold">Node.js Runtime</text>
+
+                        <rect x="450" y="180" width="200" height="100" rx="5" fill="#fff" stroke="#2563eb"
+                            stroke-width="2" />
+                        <text x="550" y="235" font-family="sans-serif" text-anchor="middle" fill="#2563eb"
+                            font-weight="bold">Virtual Filesystem</text>
+
+                        <!-- Connecting Arrow -->
+                        <path d="M 350 230 L 450 230" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowhead)" />
+
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    <figcaption class="image-caption">Fig 1. Node.js running entirely inside the Chrome V8 engine via
+                        WASM.</figcaption>
+                </figure>
+
                 <ul>
                     <li><strong>The Architecture:</strong> When you use Bolt, the "server" is actually running inside
                         your Chrome tab.</li>
@@ -68,6 +125,42 @@
                 <h4>3. Environment Type B: The Instant Cloud Sandbox (Lovable/Replit)</h4>
                 <p>Other tools like <strong>Lovable</strong> take a different approach. They don't run Node.js in your
                     browser (because browsers have limits). Instead, they use <strong>Micro-Sandboxes</strong>.</p>
+
+                <figure class="blog-image-container">
+                    <!-- Custom SVG Diagram for Micro-Sandbox -->
+                    <svg viewBox="0 0 800 450" class="blog-image"
+                        style="background: #f8fafc; width: 100%; height: auto;">
+                        <!-- Client Side -->
+                        <rect x="50" y="150" width="200" height="150" rx="10" fill="#fff" stroke="#64748b"
+                            stroke-width="2" />
+                        <text x="150" y="230" font-family="sans-serif" text-anchor="middle" fill="#64748b"
+                            font-weight="bold">Client Browser</text>
+
+                        <!-- Edge Server -->
+                        <rect x="400" y="50" width="350" height="350" rx="10" fill="#fff" stroke="#db2777"
+                            stroke-width="2" />
+                        <text x="430" y="90" font-family="sans-serif" font-weight="bold" fill="#db2777">Edge Server
+                            (Cloud)</text>
+
+                        <!-- Micro VM -->
+                        <rect x="450" y="120" width="250" height="250" rx="8" fill="#fdf2f8" stroke="#db2777"
+                            stroke-width="2" stroke-dasharray="5,5" />
+                        <text x="575" y="160" font-family="sans-serif" text-anchor="middle" fill="#db2777"
+                            font-weight="bold">Micro-VM</text>
+
+                        <rect x="480" y="200" width="190" height="140" rx="5" fill="#db2777" />
+                        <text x="575" y="280" font-family="sans-serif" text-anchor="middle" fill="#fff"
+                            font-weight="bold">Node.js / Python</text>
+
+                        <!-- Connection -->
+                        <path d="M 250 225 L 400 225" stroke="#64748b" stroke-width="3" stroke-dasharray="8,4" />
+                        <text x="325" y="215" font-family="sans-serif" text-anchor="middle" fill="#64748b"
+                            font-size="12">WebSocket</text>
+                    </svg>
+                    <figcaption class="image-caption">Fig 2. Isolated MicroVMs spinning up instantly on Edge servers.
+                    </figcaption>
+                </figure>
+
                 <ul>
                     <li><strong>The Architecture:</strong> They spin up a tiny, isolated environment (likely using
                         Firecracker microVMs or similar tech) on a server edge node.</li>
@@ -161,8 +254,9 @@
             </div>
         </article>
 
-        <footer style="margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--divider-color);">
-            <a href="index.html" class="skip-btn">
+        <footer
+            style="margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--border-color); text-align: center;">
+            <a href="index.html" class="read-more-link" style="font-size: 1.1rem;">
                 <span class="arrow">←</span> Back to Portfolio
             </a>
         </footer>

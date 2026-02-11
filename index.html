@@ -15,10 +15,12 @@
 
 <body>
     <div class="noise-bg"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
     <div class="progress-bar"></div>
 
     <header class="header-nav">
-        <div class="nav-logo">Keerthana B V</div>
+        <a href="index.html" class="nav-logo" style="text-decoration: none; cursor: pointer;">Keerthana B V</a>
         <nav class="quick-jump">
             <a href="#about">About</a>
             <a href="#skills">Expertise</a>
@@ -27,20 +29,14 @@
             <a href="#research">Research</a>
             <a href="#education">Education</a>
             <a href="blog.html">Blog</a>
+            <a href="#" class="resume-btn-nav">Resume</a>
         </nav>
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <span class="hamburger-icon"></span>
+        </button>
     </header>
 
-    <nav class="side-nav">
-        <a href="#hero" class="nav-dot" data-label="Top"></a>
-        <a href="#about" class="nav-dot" data-label="About"></a>
-        <a href="#skills" class="nav-dot" data-label="Expertise"></a>
-        <a href="#experience" class="nav-dot" data-label="Experience"></a>
-        <a href="#projects" class="nav-dot" data-label="Projects"></a>
-        <a href="#research" class="nav-dot" data-label="Research"></a>
-        <a href="#education" class="nav-dot" data-label="Education"></a>
-        <a href="blog.html" class="nav-dot" data-label="Blog"></a>
-        <a href="#contact" class="nav-dot" data-label="Contact"></a>
-    </nav>
+
 
     <main class="container">
         <!-- 1️⃣ Hero Section -->
@@ -64,84 +60,138 @@
         <section id="about" class="section reveal">
             <span class="section-number">01</span>
             <label class="section-label">01 / About</label>
-            <div class="content-block">
-                <p>MCA graduate and Software Developer specialized in <span class="scan-word">full-stack</span> and
-                    <span class="scan-word">AI-driven</span> application development.
-                    Experienced in building scalable web systems and integrating machine learning models within <span
-                        class="scan-word">Agile</span>
-                    environments. Committed to solving real-world challenges through clean, efficient, and ethical
-                    software architecture.
-                </p>
+            <div class="about-container">
+                <div class="about-image">
+                    <!-- Placeholder for user image -->
+                    <div class="img-placeholder">Your Image Here</div>
+                    <!-- <img src="your-photo.jpg" alt="Keerthana B V" /> -->
+                </div>
+                <div class="about-text">
+                    <p>MCA graduate and Software Developer specialized in <span class="scan-word">full-stack</span> and
+                        <span class="scan-word">AI-driven</span> application development.
+                        Experienced in building scalable web systems and integrating machine learning models within
+                        <span class="scan-word">Agile</span>
+                        environments. Committed to solving real-world challenges through clean, efficient, and ethical
+                        software architecture.
+                    </p>
+                    <div class="about-actions">
+                        <a href="#" class="primary-btn">Download Resume ↓</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- 3️⃣ Skills Section -->
+        <!-- 3️⃣ Skills Section (Bento Style) -->
         <section id="skills" class="section reveal">
             <span class="section-number">02</span>
             <label class="section-label">02 / Expertise</label>
-            <div class="skills-grid">
-                <div class="skills-group">
-                    <h3>Programming Languages</h3>
+            <div class="bento-grid">
+                <!-- Large Card / Programming -->
+                <div class="bento-item bento-large">
+                    <div class="bento-header">
+                        <span class="bento-icon">💻</span>
+                        <h3>Programming</h3>
+                    </div>
                     <div class="skills-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python">
+                            Python</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/openjdk/ED8B00" alt="Java">
+                            Java</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JS">
+                            JS</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++">
+                            C++</span>
                     </div>
                 </div>
-                <div class="skills-group">
-                    <h3>Frontend</h3>
+
+                <!-- Medium Card / Frontend -->
+                <div class="bento-item bento-medium">
+                    <div class="bento-header">
+                        <span class="bento-icon">🎨</span>
+                        <h3>Frontend</h3>
+                    </div>
                     <div class="skills-tags">
-                        <span class="skill-tag">React.js</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React">
+                            React</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5">
+                            HTML</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS3">
+                            CSS</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/bootstrap/7952B3" alt="Bootstrap">
+                            Bootstrap</span>
                     </div>
                 </div>
-                <div class="skills-group">
-                    <h3>Backend & APIs</h3>
+
+                <!-- Small Card / Databases -->
+                <div class="bento-item bento-small">
+                    <div class="bento-header">
+                        <span class="bento-icon">🗄️</span>
+                        <h3>Data</h3>
+                    </div>
                     <div class="skills-tags">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Python Flask</span>
-                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PSQL">
+                            PSQL</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="MDB">
+                            MDB</span>
                     </div>
                 </div>
-                <div class="skills-group">
-                    <h3>Databases</h3>
+
+                <!-- Medium Card / Backend -->
+                <div class="bento-item bento-medium">
+                    <div class="bento-header">
+                        <span class="bento-icon">⚙️</span>
+                        <h3>Backend</h3>
+                    </div>
                     <div class="skills-tags">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node">
+                            Node</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/flask/000000" alt="Flask">
+                            Flask</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="REST">
+                            REST</span>
                     </div>
                 </div>
-                <div class="skills-group">
-                    <h3>Tools & Concepts</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">Jira</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Netlify</span>
-                        <span class="skill-tag">XAI</span>
-                        <span class="skill-tag">Agile/Scrum</span>
+
+                <!-- Small Card / Tools -->
+                <div class="bento-item bento-small">
+                    <div class="bento-header">
+                        <span class="bento-icon">🛠️</span>
+                        <h3>DevOps</h3>
                     </div>
-                </div>
-                <div class="skills-group">
-                    <h3>Professional Focus</h3>
                     <div class="skills-tags">
-                        <span class="skill-tag">Problem Solving</span>
-                        <span class="skill-tag">Troubleshooting</span>
-                        <span class="skill-tag">Collaboration</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/git/F05032" alt="Git"> Git</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/netlify/00C7B7" alt="Netlify">
+                            Netlify</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4️⃣ Experience Section -->
-        <section id="experience" class="section reveal">
+        <!-- 🆕 Blog Section (New!) -->
+        <!-- 🆕 Blog Section (New!) -->
+        <section id="blog-preview" class="section reveal">
             <span class="section-number">03</span>
-            <label class="section-label">03 / Experience</label>
+            <label class="section-label">03 / Latest Thought</label>
+            <div class="blog-card">
+                <div class="blog-card-content">
+                    <div class="blog-meta">
+                        <span>Feb 2026</span>
+                        <span>•</span>
+                        <span>AI Engineering</span>
+                    </div>
+                    <h3 class="project-title">Beyond the Prompt: How AI Tools Run Code Locally</h3>
+                    <p class="project-desc">A deep dive into WebContainers and how modern AI tools are shifting
+                        development environments directly into the browser, enabling instant, secure, and
+                        collaborative coding experiences without local setup.</p>
+                    <a href="blog.html" class="read-more-link">Read Full Article <span class="arrow">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4️⃣ Experience Section (Shifted numbering) -->
+        <section id="experience" class="section reveal">
+            <span class="section-number">04</span>
+            <label class="section-label">04 / Experience</label>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
@@ -153,12 +203,25 @@
                         </header>
                         <span class="period">Present</span>
                         <ul class="bullets">
-                            <li>Developed <span class="highlight">5+</span> responsive web applications using React.js,
+                            <li>Developed <span class="highlight">5+</span> responsive web applications using
+                                React.js,
                                 improving <span class="scan-word">load speeds by 20%</span>.</li>
-                            <li>Engineered the <span class="highlight">Avant Enterprise</span> website, implementing a
-                                dynamic service module with real-time updates.</li>
-                            <li>Contributed to an <span class="scan-word">HRMS MVP</span>, developing secure modules for
-                                <span class="highlight">50+</span> users using Flask, PostgreSQL, and data encryption.
+                            <li>Engineered the <span class="highlight">Avant Enterprise</span> website, implementing
+                                a
+                                dynamic service module with real-time updates. <br>
+                                <a href="https://avantenterprise.in/" target="_blank"
+                                    class="live-link">avantenterprise.in ↗</a>
+                            </li>
+                            <li>Contributed to <span class="highlight">ASPL Tech</span> and <span
+                                    class="highlight">Research Visions</span> projects.<br>
+                                <a href="https://aspltech.in/" target="_blank" class="live-link">aspltech.in ↗</a> •
+                                <a href="https://researchvisions.com/" target="_blank"
+                                    class="live-link">researchvisions.com ↗</a>
+                            </li>
+                            <li>Contributed to an <span class="scan-word">HRMS MVP</span>, developing secure modules
+                                for
+                                <span class="highlight">50+</span> users using Flask, PostgreSQL, and data
+                                encryption.
                             </li>
                         </ul>
                     </div>
@@ -172,12 +235,13 @@
             <label class="section-label">04 / Selected Projects</label>
             <div class="projects-list">
                 <div class="project-item">
-                    <h3 class="project-title"><a href="https://angels-empyrean.netlify.app/" target="_blank">Angel’s
-                            Empyrean Kindergarten</a></h3>
+                    <h3 class="project-title">Angel’s Empyrean Kindergarten</h3>
                     <p class="project-desc">Static, mobile-first responsive website for a daycare client.</p>
                     <p class="project-stack">React.js, HTML5, CSS3, Netlify</p>
                     <p class="project-outcome">Delivered a child-friendly UI with <span class="highlight">100%</span>
                         mobile responsiveness.</p>
+                    <a href="https://angels-empyrean.netlify.app/" target="_blank" class="visit-btn">View Live Site
+                        ↗</a>
                 </div>
                 <div class="project-item">
                     <h3 class="project-title">Explainable AI Decision Support</h3>
@@ -206,6 +270,8 @@
                     <p class="research-focus">Architected a full-stack system using <span class="scan-word">BERT</span>
                         to automate workflows with an
                         integrated <span class="scan-word">Trust & Safety</span> framework for privacy auditing.</p>
+                    <a href="https://drive.google.com/file/d/1nPK1FBLpzKAEEKXouHAY0RT9Fjy8UlK3/view" target="_blank"
+                        class="cert-link">View Certificate ↗</a>
                 </div>
             </div>
         </section>
@@ -233,13 +299,36 @@
 
         <!-- 8️⃣ Footer / Contact -->
         <footer id="contact" class="section reveal">
-            <span class="section-number">07</span>
-            <label class="section-label">07 / Contact</label>
+            <span class="section-number">08</span>
+            <label class="section-label">08 / Contact</label>
             <div class="footer-links">
-                <a href="mailto:keerthana.b.v.codes@gmail.com">Email</a>
-                <a href="http://www.linkedin.com/in/keerthana-b-v" target="_blank">LinkedIn</a>
-                <a href="https://github.com/keerthana-b-v" target="_blank">GitHub</a>
-                <span class="location">Bengaluru, KA (+91 9901724479)</span>
+                <a href="mailto:keerthana.b.v.codes@gmail.com" class="contact-icon-link" aria-label="Email">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                </a>
+                <a href="http://www.linkedin.com/in/keerthana-b-v" target="_blank" class="contact-icon-link"
+                    aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="https://github.com/keerthana-b-v" target="_blank" class="contact-icon-link"
+                    aria-label="GitHub">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+                <a href="tel:+919901724479" class="contact-icon-link" aria-label="Call Me">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.27-.27.35-.66.24-1.01-.37-1.11-.56-2.3-.56-3.53 0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.95c0-.55-.45-1-1-1z" />
+                    </svg>
+                </a>
+                <span class="location">Bengaluru, KA</span>
             </div>
         </footer>
     </main>
