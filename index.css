@@ -469,6 +469,8 @@ body {
 
 .about-image {
     width: 100%;
+    max-width: 350px;
+    /* Reduced size */
     aspect-ratio: 1/1;
     background-color: #E2E8F0;
     border-radius: var(--border-radius);
