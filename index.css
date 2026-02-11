@@ -585,7 +585,7 @@ body {
 .skills-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 12px;
 }
 
 .skill-tag {
