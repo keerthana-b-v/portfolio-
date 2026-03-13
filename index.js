@@ -5,10 +5,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.section');
     const jumpLinks = document.querySelectorAll('.quick-jump a, .nav-dot, .skip-btn, .project-title a, .footer-links a');
     const logo = document.querySelector('.nav-logo');
+    const darkModeToggle = document.querySelector('.dark-mode-toggle');
 
     /**
-     * 🧲 Magnetic Logo
+     * 🌙 Dark Mode Toggle
      */
+    if (darkModeToggle) {
+        // Check local storage for preference
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+            document.body.setAttribute('data-theme', 'dark');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('darkMode', 'false');
+                darkModeToggle.textContent = '🌙';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('darkMode', 'true');
+                darkModeToggle.textContent = '☀️';
+            }
+        });
+    }
+
+    /**
+     * 🧲 Magnetic Button Effect (CTAs)
+     */
+    const primaryBtns = document.querySelectorAll('.primary-btn, .resume-btn-nav');
+    primaryBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = `translate(0px, 0px) scale(1)`;
+        });
+    });
+
     /**
      * 🧲 Magnetic Logo - DISABLED as per user request
      */
@@ -128,9 +167,14 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const cursor = document.querySelector('.custom-cursor');
     const cursorDot = document.querySelector('.custom-cursor-dot');
-    const interactiveElements = document.querySelectorAll('a, button, .skill-tag, .project-item, .nav-dot, .blog-card, .bento-item');
+    const interactiveElements = document.querySelectorAll('a, button, .skill-tag, .project-item, .nav-dot, .blog-card, .bento-item, .dark-mode-toggle');
 
     if (cursor) {
+        // Only hide the default cursor on devices that actually use a fine pointer (mouse)
+        if(window.matchMedia("(pointer: fine)").matches) {
+            document.body.classList.add('hide-cursor');
+        }
+
         window.addEventListener('mousemove', (e) => {
             const { clientX: x, clientY: y } = e;
             requestAnimationFrame(() => {

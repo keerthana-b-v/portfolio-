@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Developer & AI Engineer | Resume</title>
+    <title>Full Stack Developer | React.js | Node.js | Python | AI-Integrated Applications</title>
     <meta name="description"
-        content="Professional resume of a Software Developer & AI Engineer specializing in scalable, ethical, and intelligent software systems.">
+        content="Professional resume of a Full Stack Developer specializing in AI-augmented full-stack systems.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,6 +21,10 @@
     <div class="blob blob-2"></div>
     <div class="progress-bar"></div>
 
+    <!-- 🌙 Dark Mode Toggle & Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+
     <header class="header-nav">
         <a href="index.html" class="nav-logo" style="text-decoration: none; cursor: pointer;">Keerthana B V</a>
         <nav class="quick-jump">
@@ -30,12 +34,17 @@
             <a href="#projects">Projects</a>
             <a href="#research">Research</a>
             <a href="#education">Education</a>
+            <a href="#certifications">Certifications</a>
             <a href="blog.html">Blog</a>
             <a href="Keerthana B V.pdf" class="resume-btn-nav" download>Resume</a>
         </nav>
-        <button class="mobile-menu-btn" aria-label="Toggle Menu">
-            <span class="hamburger-icon"></span>
-        </button>
+        <div class="header-actions" style="display: flex; align-items: center; gap: 16px;">
+            <button class="dark-mode-toggle" aria-label="Toggle Dark Mode"
+                style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">🌙</button>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <span class="hamburger-icon"></span>
+            </button>
+        </div>
     </header>
 
 
@@ -50,9 +59,10 @@
                 Available for opportunities
             </div>
             <h1 class="hero-name">Keerthana B V</h1>
-            <p class="hero-role">Software Developer & <span class="scan-word">AI Engineer</span></p>
-            <p class="hero-statement">“Building <span class="scan-word">scalable</span>, ethical, and intelligent
-                software systems.”</p>
+            <p class="hero-role">Full Stack Developer <span class="scan-word">AI-Integrated Applications</span></p>
+            <p class="hero-statement">I build and ship. Promoted from intern to developer in 3 months. Deployed a <span
+                    class="scan-word">BERT model</span> that hit 84.9% F1 on a legal benchmark. Serving real clients on
+                Linux VPS in production.</p>
             <div class="hero-skip">
                 <a href="#about" class="skip-btn nav-dot-target">Scroll to Explore <span class="arrow">↓</span></a>
             </div>
@@ -67,12 +77,11 @@
                     <img src="pic.jpeg" alt="Keerthana B V" />
                 </div>
                 <div class="about-text">
-                    <p>MCA graduate and Software Developer specialized in <span class="scan-word">full-stack</span> and
-                        <span class="scan-word">AI-driven</span> application development.
-                        Experienced in building scalable web systems and integrating machine learning models within
-                        <span class="scan-word">Agile</span>
-                        environments. Committed to solving real-world challenges through clean, efficient, and ethical
-                        software architecture.
+                    <p>My work sits at the intersection of modern web development and applied artificial intelligence. I
+                        enjoy taking ownership of the entire product lifecycle—from designing robust PostgreSQL schemas
+                        and clean React interfaces to integrating complex transformer models. Rather than just building
+                        features, I focus on solving real-business problems with scalable software architecture and
+                        hands-on cloud deployments.
                     </p>
                     <div class="about-actions">
                         <a href="Keerthana B V.pdf" class="primary-btn" download>Download Resume ↓</a>
@@ -95,12 +104,8 @@
                     <div class="skills-tags">
                         <span class="skill-tag"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python">
                             Python</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/openjdk/ED8B00" alt="Java">
-                            Java</span>
                         <span class="skill-tag"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JS">
                             JS</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++">
-                            C++</span>
                     </div>
                 </div>
 
@@ -113,65 +118,65 @@
                     <div class="skills-tags">
                         <span class="skill-tag"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React">
                             React</span>
+                        <span class="skill-tag">React Router</span>
+                        <span class="skill-tag">Vite</span>
+                        <span class="skill-tag">Framer Motion</span>
                         <span class="skill-tag"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5">
                             HTML</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS3">
+                        <span class="skill-tag"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                                alt="CSS3">
                             CSS</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/bootstrap/7952B3" alt="Bootstrap">
-                            Bootstrap</span>
                     </div>
                 </div>
 
-                <!-- Small Card / Databases -->
+                <!-- Small Card / Databases & ORMs -->
                 <div class="bento-item bento-small">
                     <div class="bento-header">
                         <span class="bento-icon">🗄️</span>
-                        <h3>Data</h3>
+                        <h3>Data & ORM</h3>
                     </div>
                     <div class="skills-tags">
                         <span class="skill-tag"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PSQL">
                             PSQL</span>
                         <span class="skill-tag"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="MDB">
                             MDB</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL">
-                            MySQL</span>
-                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">SQLAlchemy</span>
+                        <span class="skill-tag">Prisma ORM</span>
                     </div>
                 </div>
 
-                <!-- Small Card / Backend -->
+                <!-- Small Card / Backend & AI -->
                 <div class="bento-item bento-small">
                     <div class="bento-header">
                         <span class="bento-icon">⚙️</span>
-                        <h3>Backend</h3>
+                        <h3>Backend & AI</h3>
                     </div>
                     <div class="skills-tags">
                         <span class="skill-tag"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node">
                             Node</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/flask/000000" alt="Flask">
-                            Flask</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="REST">
-                            REST</span>
+                        <span class="skill-tag">BERT</span>
+                        <span class="skill-tag">SHAP</span>
+                        <span class="skill-tag">LIME</span>
+                        <span class="skill-tag">REST APIs</span>
                     </div>
                 </div>
 
-                <!-- Medium Card / Cloud & DevOps -->
+                <!-- Medium Card / Cloud & Tools -->
                 <div class="bento-item bento-medium">
                     <div class="bento-header">
-                        <span class="bento-icon">☁️</span>
-                        <h3>Cloud & DevOps</h3>
+                        <span class="bento-icon">🛠️</span>
+                        <h3>Tools & DevOps</h3>
                     </div>
                     <div class="skills-tags">
                         <span class="skill-tag"><img src="https://cdn.simpleicons.org/git/F05032" alt="Git"> Git</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/hostinger/673DE6" alt="Hostinger">
-                            Hostinger</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/cpanel/FF6C2C" alt="cPanel">
-                            cPanel</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/ubuntu/E94321" alt="Ubuntu">
-                            Ubuntu</span>
-                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/linux/FCC624" alt="Linux"> VPS
-                            Server</span>
-                        <span class="skill-tag">Domain Maintenance</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/github/181717" alt="GitHub">
+                            GitHub</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman">
+                            Postman</span>
+                        <span class="skill-tag"><img src="https://cdn.simpleicons.org/netlify/00C7B7" alt="Netlify">
+                            Netlify</span>
+                        <span class="skill-tag">Agile/Scrum</span>
                     </div>
                 </div>
             </div>
@@ -207,32 +212,27 @@
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <header class="timeline-header">
-                            <span class="company">ASPL</span>
-                            <span class="role">Software Development Trainee</span>
+                            <span class="company">ASPL Tech Solutions</span>
+                            <span class="role">Full-Time Developer</span>
                             <span class="location">Bengaluru, India</span>
                         </header>
-                        <span class="period">Present</span>
+                        <span class="period">Oct 2025 – Present</span>
+                        <p class="promotion-note"
+                            style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px; font-style: italic;">
+                            Joined as Intern Oct 2025, promoted to Full-Time Developer Jan 2026</p>
                         <ul class="bullets">
-                            <li>Developed <span class="highlight">5+</span> responsive web applications using
-                                React.js,
-                                improving <span class="scan-word">load speeds by 20%</span>.</li>
-                            <li>Engineered the <span class="highlight">Avant Enterprise</span> website, implementing
-                                a
-                                dynamic service module with real-time updates. <br>
-                                <a href="https://avantenterprise.in/" target="_blank"
-                                    class="live-link">avantenterprise.in ↗</a>
+                            <li>Shipped <span class="highlight">8+</span> production web applications using React.js,
+                                Node.js, Express.js, and PostgreSQL.</li>
+                            <li>Built a full-stack HRMS replacing paper-based workflows across 4 departments with
+                                digital onboarding, attendance, and leave management.</li>
+                            <li>Implemented RBAC using PyJWT and bcrypt across Admin, HR, Manager, and Employee portals.
                             </li>
-                            <li>Contributed to <span class="highlight">ASPL Tech</span> and <span
-                                    class="highlight">Research Visions</span> projects.<br>
-                                <a href="https://aspltech.in/" target="_blank" class="live-link">aspltech.in ↗</a> •
-                                <a href="https://researchvisions.com/" target="_blank"
-                                    class="live-link">researchvisions.com ↗</a>
-                            </li>
-                            <li>Contributed to an <span class="scan-word">HRMS MVP</span>, developing secure modules
-                                for
-                                <span class="highlight">50+</span> users using Flask, PostgreSQL, and data
-                                encryption.
-                            </li>
+                            <li>Designed RESTful APIs with SQLAlchemy ORM over PostgreSQL; built Recharts dashboards for
+                                real-time HR analytics.</li>
+                            <li>Architected a full-stack research platform using Next.js with monorepo structure, Prisma
+                                ORM, and NextAuth.js.</li>
+                            <li>Deployed <span class="highlight">3+</span> client sites on Hostinger Linux VPS with
+                                Nginx reverse proxy and SSL/TLS.</li>
                         </ul>
                     </div>
                 </div>
@@ -245,22 +245,38 @@
             <label class="section-label">04 / Selected Projects</label>
             <div class="projects-list">
                 <div class="project-item">
-                    <h3 class="project-title">Angel’s Empyrean Kindergarten</h3>
-                    <p class="project-desc">Static, mobile-first responsive website for a daycare client.</p>
-                    <p class="project-stack">React.js, HTML5, CSS3, Netlify</p>
-                    <p class="project-outcome">Delivered a child-friendly UI with <span class="highlight">100%</span>
-                        mobile responsiveness.</p>
+                    <h3 class="project-title">AI-Powered Legal Document Analysis</h3>
+                    <p class="project-desc">Architected a full-stack system using BERT to automate workflows with an
+                        integrated Trust & Safety framework for privacy auditing. Lead project presented at NCRIE-2025.
+                    </p>
+                    <p class="project-stack">Python, <span class="scan-word">BERT</span></p>
+                    <p class="project-outcome">Achieved <span class="highlight">84.9%</span> F1-score on legal
+                        benchmark.</p>
+                </div>
+                <div class="project-item">
+                    <h3 class="project-title">Explainable AI Clinical Decision Support Dashboard</h3>
+                    <p class="project-desc">Streamlit-based dashboard predicting heart disease risk with transparent
+                        explanations.</p>
+                    <p class="project-stack">Python, <span class="scan-word">SHAP, LIME</span>, Streamlit</p>
+                    <p class="project-outcome">Constructed a module to quantitatively compare <span
+                            class="scan-word">XAI consistency</span> for reliability insights.</p>
+                </div>
+                <div class="project-item">
+                    <h3 class="project-title">Angel’s Empyrean Kindergarten Website</h3>
+                    <p class="project-desc">Static responsive website for a daycare client aligned with early-childhood
+                        branding.</p>
+                    <p class="project-stack">React 19, Vite, Netlify</p>
+                    <p class="project-outcome">Managed deployment via Netlify and performed end-to-end testing.</p>
                     <a href="https://angels-empyrean.netlify.app/" target="_blank" class="visit-btn">View Live Site
                         ↗</a>
                 </div>
                 <div class="project-item">
-                    <h3 class="project-title">Explainable AI Decision Support</h3>
-                    <p class="project-desc">Streamlit-based dashboard predicting heart disease risk with transparent
-                        explanations.</p>
-                    <p class="project-stack">Python, <span class="scan-word">SHAP, LIME</span></p>
-                    <p class="project-outcome">Enabled clinicians to quantitatively compare <span class="scan-word">XAI
-                            consistency</span> for
-                        reliability.</p>
+                    <h3 class="project-title">Research Visions Platform</h3>
+                    <p class="project-desc">Full-stack research platform built with a modern web stack and scalable
+                        database structure.</p>
+                    <p class="project-stack">Next.js 14, <span class="scan-word">Prisma</span>, PostgreSQL</p>
+                    <p class="project-outcome">Implemented comprehensive database schema and next-gen monorepo
+                        architecture.</p>
                 </div>
             </div>
         </section>
@@ -273,12 +289,14 @@
                 <div class="research-item">
                     <h3>AI-Powered Legal Document Analysis</h3>
                     <p class="conference">Presented at NCRIE-2025</p>
+                    <p class="award" style="color: #4ade80; font-weight: 500; margin-bottom: 12px; margin-top: -4px;">🏆
+                        Best Paper Presentation Award — NCRIE-2025, KSIT</p>
                     <div class="metrics">
-                        <span>F1 Score: <span class="highlight">0.849</span></span>
-                        <span>Accuracy: <span class="highlight">84.7%</span> on CUAD</span>
+                        <span>F1-score: <span class="highlight">84.9%</span></span>
+                        <span>Accuracy: <span class="highlight">84.7%</span></span>
                     </div>
-                    <p class="research-focus">Architected a full-stack system using <span class="scan-word">BERT</span>
-                        to automate workflows with an
+                    <p class="research-focus"><strong>Dataset:</strong> CUAD (510 legal contracts)<br><br>Architected a
+                        full-stack system using <span class="scan-word">BERT</span> to automate workflows with an
                         integrated <span class="scan-word">Trust & Safety</span> framework for privacy auditing.</p>
                     <a href="https://drive.google.com/file/d/1nPK1FBLpzKAEEKXouHAY0RT9Fjy8UlK3/view" target="_blank"
                         class="cert-link">View Certificate ↗</a>
@@ -293,16 +311,43 @@
             <div class="education-grid">
                 <div class="education-item">
                     <h3>Master of Computer Applications</h3>
-                    <p>RV Institute of Technology and Management</p>
+                    <p>RV Institute of Technology and Management, Bengaluru, India</p>
+                    <p class="date">May 2025</p>
                     <p class="cgpa">CGPA: <span class="highlight">8.2</span></p>
                     <p class="focus">Focus: <span class="scan-word">Software Engineering</span> & Artificial
                         Intelligence</p>
                 </div>
                 <div class="education-item">
                     <h3>Bachelor of Computer Applications</h3>
-                    <p>Community Institute of Commerce and Management</p>
+                    <p>Community Institute of Commerce and Management, Bengaluru, India</p>
+                    <p class="date">Sept 2023</p>
                     <p class="cgpa">CGPA: <span class="highlight">8.4</span></p>
-                    <p class="focus">Focus: Application Development & DBMS</p>
+                    <p class="focus">Focus: Computer Science & Application Development, DBMS</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🆕 Certifications & Awards Section -->
+        <section id="certifications" class="section reveal">
+            <span class="section-number">07</span>
+            <label class="section-label">07 / Certifications & Awards</label>
+            <div class="certifications-list">
+                <div class="cert-item"
+                    style="padding: 24px; border: 1px solid var(--border-color); border-radius: 12px; background: var(--card-bg);">
+                    <h3 style="margin-bottom: 8px;">Paper Presentation Award</h3>
+                    <p style="color: var(--text-secondary);">National Conference on Recent Innovations in Engineering
+                        (NCRIE-2025).</p>
+                </div>
+                <div class="cert-item"
+                    style="padding: 24px; border: 1px solid var(--border-color); border-radius: 12px; background: var(--card-bg);">
+                    <h3 style="margin-bottom: 8px;">Certified MERN Stack Developer</h3>
+                    <p style="color: var(--text-secondary);">Dyashin Technosoft.</p>
+                </div>
+                <div class="cert-item"
+                    style="padding: 24px; border: 1px solid var(--border-color); border-radius: 12px; background: var(--card-bg);">
+                    <h3 style="margin-bottom: 8px;">Certificate of Appreciation</h3>
+                    <p style="color: var(--text-secondary);">For successful delivery of Client Project (Angel’s
+                        Empyrean).</p>
                 </div>
             </div>
         </section>
