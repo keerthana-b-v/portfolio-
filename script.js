@@ -1,9 +1,9 @@
 // DOM Elements
 const experienceGrid = document.querySelector(".experience-grid")
-const projectsGrid = document.querySelector(".projects-grid")
+const projectsGrid = document.getElementById("projects-grid")
 const educationGrid = document.querySelector(".education-grid")
 const hackathonsGrid = document.querySelector(".hackathons-grid")
-const skillsGrid = document.querySelector(".skills-grid")
+const skillsGrid = document.getElementById("skills-grid")
 const additionalInfo = document.querySelector(".additional-info")
 const projectModal = document.getElementById("project-modal")
 const closeModalBtn = document.getElementById("close-modal")
@@ -21,8 +21,24 @@ const experience = [
     id: 1,
     company: "ASPLTech Solutions Pvt Ltd",
     role: "Software Developer",
-    period: "Present",
-    description: "Worked in ASPLTech Solutions Pvt Ltd. Developed 5+ live projects which are currently live, contributing to scalable enterprise solutions.",
+    period: "Oct 2025 – Present",
+    description: "At ASPLTech Solutions Pvt Ltd, I drive full-stack delivery from planning to production for live client systems and internal platforms.",
+    points: [
+      "Shipped <strong>8+ production web apps</strong> using React.js, Node.js, Express.js, and PostgreSQL, each delivered on deadline and deployed to live infrastructure.",
+      "Built a full-stack <strong>HRMS</strong> in React + Python Flask, replacing paper workflows with digital onboarding, attendance tracking, and leave management across 4 departments.",
+      "Implemented <strong>RBAC</strong> using PyJWT and bcrypt across 4 role-specific portals (Admin, HR, Manager, Employee) with strict per-role data isolation.",
+      "Designed <strong>RESTful APIs</strong> via SQLAlchemy ORM over PostgreSQL for complex multi-table queries and analytics-ready integrations.",
+      "Architected a <strong>Next.js 14 monorepo</strong> using NPM Workspaces with separate frontend, admin, and backend apps using Prisma ORM and NextAuth.js.",
+      "Deployed <strong>3+ client sites</strong> on Linux VPS with Nginx reverse proxy and SSL/TLS, with reusable config templates used across new deployments.",
+    ],
+    location: "Bengaluru, India",
+    promotion: "Promoted intern → full-time in 3 months",
+    metrics: [
+      { value: 10, suffix: "+", label: "Projects delivered during tenure" },
+      { value: 84.9, suffix: "%", label: "F1-Score on legal AI benchmark", decimals: 1 },
+      { value: 8, suffix: "+", label: "Client sites live on Linux VPS" },
+      { value: 3, suffix: " mo", label: "From intern to full-time" },
+    ],
     projects: [
       {
         name: "Suraksha Hospital Website",
@@ -39,12 +55,12 @@ const experience = [
       {
         name: "Triuss Tech Corporate Site",
         description: "Professional corporate website for a technology firm, highlighting services, portfolio, and client testimonials.",
-        link: "https://triusstech.com/",
+        link: "https://triuss.in/",
         image: "assets/triuss.png"
       },
       {
         name: "Research Visions",
-        description: "An academic research portal designed to publish findings, manage papers, and facilitate collaboration among researchers.",
+        description: "A technology website for Research Vision Tech Services showcasing modular AV products, visual systems, and implementation services. Structured to highlight enterprise use cases, industry verticals, and end-to-end project delivery capabilities.",
         link: "https://researchvisions.com/",
         image: "assets/researchvisions.png"
       },
@@ -56,9 +72,15 @@ const experience = [
       },
       {
         name: "Avant Enterprise",
-        description: "An enterprise solutions website showcasing business services and corporate offerings.",
+        description: "A business-focused company website presenting Avant Enterprise services across web, app development, UI/UX, and digital marketing. Also emphasizes training, manpower support, and client-first engagement through a clear multi-section service architecture.",
         link: "https://avantenterprise.in/",
         image: "assets/avantenterprise.png"
+      },
+      {
+        name: "Angel's Empyrean Kindergarten",
+        description: "A vibrant kindergarten website showcasing admissions, programs, and parent-focused highlights. Built with clear navigation and responsive layouts for a smooth browsing experience across devices.",
+        link: "https://angels-empyrean.netlify.app/",
+        image: "assets/angel'sempyrean.png"
       }
     ],
     icon: "💼",
@@ -74,30 +96,36 @@ const projects = [
       "Built an IoT-based system using Raspberry Pi and Firebase to automate employee attendance. Used face recognition for identity verification, stored 128-dimensional encodings in Firestore, and implemented edge-cloud architecture for real-time, accurate, and server-independent attendance tracking.",
     technologies: ["Raspberry Pi", "Picamera2", "Firebase Firestore", "Python", "Face Recognition", "OpenCV"],
     icon: "🔍",
+    color: { from: "#06B6D4", to: "#3B82F6", tag: "#0e7490" },
+    githubLink: "http://github.com/Ruthvikrr/Raspberry_Attendance_System",
   },
   {
     id: 2,
-    title: "Badminton E-commerce Web App",
+    title: "JARVIS 2nd - Voice AI Assistant",
     description:
-      "Developed a user-friendly e-commerce platform that allows users to log in, browse a variety of badminton products, add items to their cart, and complete purchases by entering basic delivery details. The app provides an intuitive shopping experience with a responsive design.",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    icon: "🏸",
+      "Built a full-stack voice assistant with a FastAPI WebSocket backend, Claude-powered tool calling, and streaming edge-TTS output. The system handles live text and audio flows, supports tools like opening Windows apps and saving notes, and pairs with a React + Three.js visualizer for a realtime assistant experience.",
+    technologies: ["FastAPI", "WebSockets", "Claude API", "edge-tts", "React", "Three.js", "Vite", "Tailwind"],
+    icon: "🤖",
+    color: { from: "#8B5CF6", to: "#06B6D4", tag: "#6d28d9" },
+    githubLink: "https://github.com/Ruthvikrr/jarvis2nd",
   },
   {
     id: 3,
-    title: "Personal Portfolio Website - Hosted on AWS S3",
+    title: "Personal Portfolio Website — Hosted on AWS S3",
     description:
-      "A fully responsive personal portfolio website showcasing my skills, projects, and professional background.The website is designed using modern frontend technologies and securely hosted on AWS S3 with static website hosting enabled.",
+      "A fully responsive personal portfolio website showcasing my skills, projects, and professional background. Designed using modern frontend technologies and securely hosted on AWS S3 with static website hosting enabled.",
     technologies: ["HTML", "CSS", "JavaScript", "AWS S3"],
     icon: "🧑‍💻",
+    color: { from: "#10B981", to: "#06B6D4", tag: "#065f46" },
   },
   {
     id: 4,
-    title: "AI Voice Call Assistant for Cake Shop/Cafe (Personal Project)",
+    title: "Full-Stack HRMS — Production App",
     description:
-      "Built a voice-enabled AI agent using n8n to automate order placement, tracking, delivery updates, and stock checks.Integrated webhooks and APIs to enable real-time voice interactions and reduce manual customer service tasks",
-    technologies: ["n8n", "Webhooks", "APIs", "Twillio"],
-    icon: "📞",
+      "A client across 4 departments ran everything on paper. I built a complete HRMS from scratch using React and Python Flask, with RBAC across 4 role-isolated portals, SQLAlchemy ORM for complex multi-table queries, and real-time analytics dashboards. It is live in production and replaced manual processes entirely.",
+    technologies: ["React.js", "Python Flask", "PostgreSQL", "SQLAlchemy", "PyJWT", "Private client project"],
+    icon: "🔒",
+    color: { from: "#EF4444", to: "#F97316", tag: "#b91c1c" },
   },
 ]
 
@@ -156,47 +184,51 @@ const hackathons = [
 ]
 
 const skills = [
-  {
-    name: "Programming Languages",
-    icon: "👨‍💻",
-    items: ["Python 🐍", "PHP 🐘", "Java ☕", "C++ 💻"],
-  },
-  {
-    name: "Web Development",
-    icon: "🌐",
-    items: ["HTML 📄", "CSS 🎨", "JavaScript 🟨", "React ⚛️"],
-  },
-  {
-    name: "Database & Backend",
-    icon: "🗄️",
-    items: ["Firebase 🔥", "SQL 🗃️"],
-  },
-  {
-    name: "Cloud & DevOps",
-    icon: "☁️",
-    items: ["Docker 🐳", "AWS ☁️", "Google Cloud 🌥️", "Linux 🐧", "Cloud Computing ☁️"],
-  },
-  {
-    name: "Tools & Technologies",
-    icon: "🧰",
-    items: [, "VS Code", "N8N", "VE0.dev", "GitHub", "Bolt", "Claude", "ChatGPT", "Google Studio"],
-  },
-  {
-    name: " AI & Machine Learning",
-    icon: "🤖",
-    items: [
-      "Natural language processing 🤖",
-      "AI Agents 🧳",
-      "Machine Learning ⚙️",
-      "Prompt Engineering 💬",
-      "Generative AI 🧠",
-    ],
-  },
+  // PROGRAMMING LANGUAGES
+  { name: "HTML", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", category: "Programming languages" },
+  { name: "CSS", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", category: "Programming languages" },
+  { name: "JavaScript", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", category: "Programming languages" },
+  { name: "React Native", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", category: "Programming languages" },
+  { name: "Next.js", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", category: "Programming languages", invert: true },
+  { name: "NextAuth.js", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", category: "Programming languages", invert: true },
+  { name: "Python", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", category: "Programming languages" },
+  { name: "Node.js", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", category: "Programming languages" },
+
+  // DATABASES & CLOUD
+  { name: "MongoDB", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", category: "Databases & Cloud" },
+  { name: "SQL", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", category: "Databases & Cloud" },
+  { name: "PostgreSQL", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", category: "Databases & Cloud" },
+  { name: "Firebase", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", category: "Databases & Cloud" },
+  { name: "AWS Cloud", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", category: "Databases & Cloud" },
+
+  // DEVOPS & TOOLING
+  { name: "Linux VPS", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", category: "DevOps & Tooling" },
+  { name: "Nginx", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg", category: "DevOps & Tooling" },
+  { name: "Docker", image: "assets/Technical skills/docker.png", category: "DevOps & Tooling" },
+  { name: "SSL/TLS", image: null, category: "DevOps & Tooling" },
+  { name: "Git / GitHub", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", category: "DevOps & Tooling", invert: true },
+  { name: "Netlify", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg", category: "DevOps & Tooling" },
+  { name: "Vercel", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg", category: "DevOps & Tooling", invert: true },
+  { name: "NPM Workspaces", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg", category: "DevOps & Tooling", invert: true },
+  { name: "Postman", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg", category: "DevOps & Tooling" },
+  { name: "Jira / Agile", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg", category: "DevOps & Tooling" },
+
+  // CURRENTLY EXPLORING
+  { name: "LLMs", image: "assets/Technical skills/llms.png", category: "Currently Exploring" },
+  { name: "LangChain", image: "assets/Technical skills/langchain.png", category: "Currently Exploring" },
+  { name: "Vector DB", image: null, category: "Currently Exploring" },
+  { name: "LLM Fine-tuning", image: null, category: "Currently Exploring" },
+  { name: "RAG Architectures", image: null, category: "Currently Exploring" },
+  { name: "LangGraph", image: null, category: "Currently Exploring" },
+  { name: "Vector Databases", image: null, category: "Currently Exploring" },
+  { name: "Prompt Engineering", image: null, category: "Currently Exploring" },
+  { name: "n8n", image: "https://cdn.simpleicons.org/n8n/EA4B71", category: "Currently Exploring" },
+  { name: "Make AI", image: null, category: "Currently Exploring" },
 ]
 
 const additionalInfoData = [
   { id: 1, title: "Languages", items: ["English", "Kannada", "Hindi", "Tamil", "Telugu"] },
-  { id: 2, title: "Certifications", items: ["Utl technologies Certification: Next Gen - AI and ML"] },
+  { id: 2, title: "Certifications", items: ["Utl technologies", "Certification: Next Gen - AI and ML"] },
   { id: 3, title: "Awards", items: ["Winner in IT Quiz", "IT Manager", "Photography"] },
   { id: 4, title: "Cloud Badges", items: ["Cloud Computing", "Generative AI"] },
 ]
@@ -506,28 +538,44 @@ function renderExperience() {
     const expInfoCard = document.createElement("div")
     expInfoCard.className = "experience-card experience-info-only"
     expInfoCard.innerHTML = `
-      <div class="experience-header-content">
-        <div class="experience-icon">${exp.icon}</div>
-        <div class="experience-details">
-          <h3 class="experience-company">${exp.company}</h3>
-          <p class="experience-role">${exp.role}</p>
-          <p class="experience-period">${exp.period}</p>
+      <div class="experience-card-top">
+        <div class="experience-header-content">
+          <div class="experience-icon">${exp.icon}</div>
+          <div class="experience-details">
+            <h3 class="experience-company">${exp.company}</h3>
+            <p class="experience-promo-note">${exp.promotion}</p>
+          </div>
+        </div>
+        <div class="experience-meta">
+          <span class="experience-role-top">${exp.role}</span>
+          <span class="experience-meta-line">${exp.period} · ${exp.location}</span>
         </div>
       </div>
       <p class="experience-description">${exp.description}</p>
+      <div class="experience-points-grid">
+        ${(exp.points || []).map((point) => `
+          <div class="experience-point-item">
+            <span class="experience-point-dot" aria-hidden="true"></span>
+            <p class="experience-point-text">${point}</p>
+          </div>
+        `).join("")}
+      </div>
     `
     experienceGrid.appendChild(expInfoCard)
 
     // 2. Projects Grid (Separate Container)
     const projectsContainer = document.createElement("div")
     projectsContainer.className = "experience-projects-full-width"
-    projectsContainer.innerHTML = `<h4 class="experience-projects-title">Key Live Projects</h4>`
+    projectsContainer.innerHTML = `<h4 class="experience-projects-title">Projects Delivered During Tenure</h4>`
 
     const projectsGridDiv = document.createElement("div")
     projectsGridDiv.className = "experience-projects-grid"
 
-    exp.projects.forEach(project => {
-      projectsGridDiv.innerHTML += `
+    const marqueeDiv = document.createElement("div")
+    marqueeDiv.className = "experience-project-marquee"
+
+    // Render projects twice for seamless loop
+    const projectsHTML = exp.projects.map(project => `
         <div class="experience-project-card">
           <div class="experience-project-image">
              <img src="${project.image}" alt="${project.name}" />
@@ -540,68 +588,147 @@ function renderExperience() {
             </a>
           </div>
         </div>
-      `
-    })
+    `).join("")
+
+    marqueeDiv.innerHTML = projectsHTML + projectsHTML // Duplicate for looping
+    projectsGridDiv.appendChild(marqueeDiv)
 
     projectsContainer.appendChild(projectsGridDiv)
     experienceGrid.appendChild(projectsContainer)
+
   })
 }
 
-// Render Project Cards
+// Render Project Cards — Animated color-coded cards with scroll effects
 function renderProjects() {
   if (!projectsGrid) return
 
   projectsGrid.innerHTML = ""
+  projectsGrid.className = "projects-grid"
 
-  projects.forEach((project) => {
-    const projectCard = document.createElement("div")
-    projectCard.className = "project-card"
-    projectCard.dataset.id = project.id
+  projects.forEach((project, index) => {
+    const num = String(index + 1).padStart(2, "0")
+    const { from, to } = project.color
 
-    projectCard.innerHTML = `
-<div class="project-icon">${project.icon}</div>
-<h3 class="project-title">${project.title}</h3>
-<p class="project-description">${project.description}</p>
-<div class="project-tags">
-  ${project.technologies
-        .map(
-          (tech) => `
-    <span class="project-tag">${tech}</span>
-  `,
-        )
-        .join("")}
-</div>
-`
+    const card = document.createElement("div")
+    card.className = "project-card"
+    card.dataset.id = project.id
+    card.style.setProperty("--ac-from", from)
+    card.style.setProperty("--ac-to", to)
 
-    // Remove this line or comment it out:
-    // projectCard.addEventListener("click", () => openProjectModal(project));
+    card.innerHTML =
+      '<div class="pc-mouse-glow"></div>' +
+      '<div class="pc-accent-bar"></div>' +
+      '<div class="pc-body">' +
+        '<div class="pc-header">' +
+          '<span class="pc-num">' + num + '</span>' +
+          '<span class="pc-icon">' + project.icon + '</span>' +
+        '</div>' +
+        '<h3 class="pc-title">' + project.title + '</h3>' +
+        '<p class="pc-desc">' + project.description + '</p>' +
+        '<div class="pc-footer">' +
+          '<div class="pc-tags">' +
+            project.technologies.map(t => '<span class="pc-tag">' + t + '</span>').join("") +
+          '</div>' +
+          '<div class="pc-links-divider"></div>' +
+          '<div class="pc-links">' +
+            (project.githubLink
+              ? '<a class="pc-link-btn" href="' + project.githubLink + '" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i><span>GitHub Project</span></a>'
+              : '<span class="pc-link-note">No public repository</span>') +
+          '</div>' +
+        '</div>' +
+      '</div>'
 
-    projectsGrid.appendChild(projectCard)
+    const glow = card.querySelector(".pc-mouse-glow")
+    card.addEventListener("mousemove", function(e) {
+      const r = card.getBoundingClientRect()
+      glow.style.background =
+        "radial-gradient(500px circle at " + (e.clientX - r.left) + "px " + (e.clientY - r.top) + "px, " + from + "30, transparent 65%)"
+    })
+    card.addEventListener("mouseleave", function() { glow.style.background = "transparent" })
+
+    projectsGrid.appendChild(card)
   })
+
+  if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger)
+
+    // Keep cards visible by animating position only (no opacity-based hiding).
+    gsap.from(".project-card", {
+      scrollTrigger: { trigger: "#projects", start: "top 88%", once: true },
+      y: 50, scale: 0.97,
+      duration: 0.75, stagger: 0.15, ease: "power3.out",
+      clearProps: "all"
+    })
+
+    // Accent bars sweep in
+    gsap.from(".pc-accent-bar", {
+      scrollTrigger: { trigger: "#projects", start: "top 85%", once: true },
+      scaleX: 0, transformOrigin: "left center",
+      duration: 0.9, stagger: 0.15, delay: 0.2, ease: "expo.out",
+      clearProps: "all"
+    })
+
+    // Numbers burst in
+    gsap.from(".pc-num", {
+      scrollTrigger: { trigger: "#projects", start: "top 86%", once: true },
+      opacity: 0, scale: 1.8,
+      duration: 0.6, stagger: 0.15, delay: 0.1, ease: "back.out(1.7)",
+      clearProps: "all"
+    })
+  }
 }
 
-// Render Education Cards
+// Render Education Cards — Timeline layout
 function renderEducation() {
   if (!educationGrid) return
 
   educationGrid.innerHTML = ""
+  educationGrid.className = "education-timeline"
 
-  education.forEach((edu) => {
-    const educationCard = document.createElement("div")
-    educationCard.className = "education-card"
+  education.forEach((edu, index) => {
+    const cgpaPercent = (edu.CGPA / 10) * 100
+    const isFirst = index === 0
 
-    educationCard.innerHTML = `
-    <div class="education-icon">${edu.icon}</div>
-    <div class="education-content">
-      <h3 class="education-degree">${edu.degree}</h3>
-      <p class="education-institution">${edu.institution}</p>
-      <p class="education-period">${edu.period}</p>
-      <p class="education-CGPA">CGPA: ${edu.CGPA}</p>
-    </div>
-  `
+    const item = document.createElement("div")
+    item.className = "edu-timeline-item"
 
-    educationGrid.appendChild(educationCard)
+    item.innerHTML = `
+      <div class="edu-timeline-left">
+        <span class="edu-period-badge">${edu.period}</span>
+      </div>
+
+      <div class="edu-timeline-center">
+        <div class="edu-dot ${isFirst ? "edu-dot--active" : ""}">
+          <div class="edu-dot-inner"></div>
+        </div>
+        ${index < education.length - 1 ? '<div class="edu-line"></div>' : ""}
+      </div>
+
+      <div class="edu-timeline-right">
+        <div class="edu-card">
+          <div class="edu-card-top">
+            <span class="edu-icon">${edu.icon}</span>
+            <span class="edu-status-badge ${isFirst ? "badge--primary" : "badge--secondary"}">
+              ${isFirst ? "Graduated" : "Completed"}
+            </span>
+          </div>
+          <h3 class="edu-degree">${edu.degree}</h3>
+          <p class="edu-institution">
+            <i class="fas fa-map-marker-alt"></i> ${edu.institution}
+          </p>
+          <div class="edu-cgpa-row">
+            <span class="edu-cgpa-label">CGPA</span>
+            <div class="edu-cgpa-track">
+              <div class="edu-cgpa-fill" style="width:${cgpaPercent}%"></div>
+            </div>
+            <span class="edu-cgpa-value">${edu.CGPA} <span class="edu-cgpa-max">/ 10</span></span>
+          </div>
+        </div>
+      </div>
+    `
+
+    educationGrid.appendChild(item)
   })
 }
 
@@ -630,24 +757,133 @@ function renderHackathons() {
 function renderSkills() {
   if (!skillsGrid) return
 
+  const categoryConfig = {
+    "Programming languages": { color: "#61DAFB" },
+    "Databases & Cloud": { color: "#F6AD55" },
+    "DevOps & Tooling": { color: "#10B981" },
+    "Currently Exploring": { color: "#F97316" },
+  }
+
+  // Group skills by category (preserving order)
+  const categoryMap = {}
+  skills.forEach(skill => {
+    const cat = skill.category || "Other"
+    if (!categoryMap[cat]) categoryMap[cat] = []
+    categoryMap[cat].push(skill)
+  })
+
+  const totalSkills = skills.length
+  const totalCategories = Object.keys(categoryMap).length
+
   skillsGrid.innerHTML = ""
-
-  skills.forEach((category) => {
-    const skillCard = document.createElement("div")
-    skillCard.className = "skill-card"
-
-    skillCard.innerHTML = `
-    <div class="skill-header">
-      <div class="skill-icon">${category.icon}</div>
-      <h3 class="skill-name">${category.name}</h3>
-    </div>
-    <ul class="skill-list">
-      ${category.items.map((item) => `<li>${item}</li>`).join("")}
-    </ul>
+  skillsGrid.className = "skills-categories-container skills-layout"
+  skillsGrid.innerHTML = `
+    <aside class="skills-side-content">
+      <div class="skills-side-intro">
+        <h2 class="skills-side-headline">Real stack,<br/>not a badge wall.</h2>
+        <p class="skills-side-tagline">Every item here is something I've used to ship something real. No padding.</p>
+      </div>
+      <div class="skills-side-stat-card">
+        <div class="skills-side-stat-value" data-target="${totalSkills}" data-suffix="+">0+</div>
+        <div class="skills-side-stat-label">Core tools in active stack</div>
+      </div>
+      <div class="skills-side-stat-card">
+        <div class="skills-side-stat-value" data-target="${totalCategories}" data-suffix="">0</div>
+        <div class="skills-side-stat-label">Skill categories</div>
+      </div>
+    </aside>
+    <div class="skills-groups-wrap"></div>
   `
 
-    skillsGrid.appendChild(skillCard)
+  const groupsWrap = skillsGrid.querySelector(".skills-groups-wrap")
+
+  Object.entries(categoryMap).forEach(([catName, catSkills]) => {
+    const cfg = categoryConfig[catName] || { color: "#8a2be2", icon: "fa-solid fa-code" }
+
+    const catSection = document.createElement("div")
+    catSection.className = "skills-category-section skills-category-pill-layout"
+
+    catSection.innerHTML = `
+      <div class="skills-category-header">
+        <span class="skills-category-dot" style="background:${cfg.color};box-shadow:0 0 8px ${cfg.color}88"></span>
+        <h3 class="skills-category-title" style="color:${cfg.color}">${catName}</h3>
+        <div class="skills-category-line" style="background:linear-gradient(to right,${cfg.color}44,transparent)"></div>
+      </div>
+      <div class="skills-category-grid"></div>
+    `
+
+    const catGrid = catSection.querySelector(".skills-category-grid")
+
+    catSkills.forEach((skill) => {
+      const pill = document.createElement("div")
+      pill.className = "skills-pill"
+      pill.style.setProperty("--pill-accent", cfg.color)
+      pill.textContent = skill.name
+      catGrid.appendChild(pill)
+    })
+
+    groupsWrap.appendChild(catSection)
   })
+
+  const statValues = skillsGrid.querySelectorAll(".skills-side-stat-value")
+  const animateStat = (el) => {
+    if (el.dataset.animated === "true") return
+    el.dataset.animated = "true"
+
+    const target = Number(el.dataset.target || 0)
+    const suffix = el.dataset.suffix || ""
+    const start = performance.now()
+    const duration = 1100
+
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      const current = Math.round(target * eased)
+      el.textContent = `${current}${suffix}`
+      if (progress < 1) requestAnimationFrame(step)
+    }
+
+    requestAnimationFrame(step)
+  }
+
+  if (typeof IntersectionObserver !== "undefined") {
+    const statObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          statValues.forEach(animateStat)
+          obs.disconnect()
+        }
+      })
+    }, { threshold: 0.35 })
+
+    statObserver.observe(skillsGrid)
+  } else {
+    statValues.forEach(animateStat)
+  }
+
+  // GSAP Animations
+  if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger)
+
+    gsap.from(".skills-main-title", { scrollTrigger: { trigger: "#skills", start: "top 75%" }, x: -80, opacity: 0, duration: 0.8, delay: 0.1, ease: "power2.out" })
+    gsap.from(".skills-subtitle", { scrollTrigger: { trigger: "#skills", start: "top 72%" }, x: 80, opacity: 0, duration: 0.8, delay: 0.25, ease: "power2.out" })
+    gsap.from(".skills-side-intro", {
+      scrollTrigger: { trigger: ".skills-categories-container", start: "top 85%" },
+      opacity: 0, x: -35, duration: 0.7, ease: "power2.out"
+    })
+    gsap.from(".skills-side-stat-card", {
+      scrollTrigger: { trigger: ".skills-categories-container", start: "top 85%" },
+      opacity: 0, x: -35, y: 20, duration: 0.7, stagger: 0.12, ease: "power2.out"
+    })
+    gsap.from(".skills-category-section", {
+      scrollTrigger: { trigger: ".skills-categories-container", start: "top 85%" },
+      opacity: 0, y: 40, duration: 0.7, stagger: 0.18, ease: "power2.out"
+    })
+    gsap.from(".skills-pill", {
+      scrollTrigger: { trigger: ".skills-categories-container", start: "top 80%" },
+      opacity: 0, y: 14, duration: 0.4, stagger: 0.05, ease: "power2.out"
+    })
+  }
 }
 
 // Render Additional Info
@@ -797,6 +1033,8 @@ function handleContactForm() {
 
 // Initialize Animations with GSAP
 function initAnimations() {
+  if (typeof gsap === "undefined") return
+
   // Hero section animations
   gsap.from(".subtitle", { opacity: 0, y: 20, duration: 0.5 })
   gsap.from(".title", { opacity: 0, y: 20, duration: 0.5, delay: 0.2 })
@@ -805,6 +1043,7 @@ function initAnimations() {
   // gsap.from(".profile-container", { opacity: 0, scale: 0.8, duration: 0.8 })
 
   // Section animations with ScrollTrigger
+  if (typeof ScrollTrigger === "undefined") return
   gsap.registerPlugin(ScrollTrigger)
 
   // Section headers
@@ -839,7 +1078,6 @@ function initAnimations() {
   // Project cards
   gsap.utils.toArray(".project-card").forEach((card, i) => {
     gsap.from(card, {
-      opacity: 0,
       y: 20,
       duration: 0.5,
       delay: i * 0.1,
@@ -969,6 +1207,191 @@ function initAnimations() {
   })
 }
 
+// Lazy lag load animation for all main sections
+function initLazyLagSections() {
+  const sections = document.querySelectorAll("section.section")
+  if (!sections.length) return
+
+  if (typeof gsap !== "undefined") {
+    gsap.set(sections, { opacity: 0, y: 24, filter: "blur(4px)" })
+    gsap.to(sections, {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      duration: 0.7,
+      stagger: 0.12,
+      delay: 0.12,
+      ease: "power2.out",
+      clearProps: "opacity,transform,filter",
+    })
+  } else {
+    sections.forEach((section) => {
+      section.style.opacity = "1"
+      section.style.transform = "none"
+      section.style.filter = "none"
+    })
+  }
+}
+
+function initRagChatWidget() {
+  const root = document.getElementById("rag-chat-root")
+  const bubble = document.getElementById("rag-chat-bubble")
+  const panel = document.getElementById("rag-chat-panel")
+  const closeBtn = document.getElementById("rag-chat-close")
+  const form = document.getElementById("rag-chat-form")
+  const input = document.getElementById("rag-chat-input")
+  const messages = document.getElementById("rag-chat-messages")
+  const chips = document.querySelectorAll(".rag-chip")
+  const cta = document.getElementById("rag-contact-cta")
+  const openers = document.querySelectorAll("[data-open-rag-chat]")
+
+  if (!root || !bubble || !panel || !form || !input || !messages) return
+
+  // Keep widget outside transformed containers so fixed positioning stays viewport-relative.
+  if (root.parentElement !== document.documentElement) {
+    document.documentElement.appendChild(root)
+  }
+
+  const applyFloatingPosition = () => {
+    const isMobile = window.matchMedia("(max-width: 640px)").matches
+    root.style.position = "fixed"
+    root.style.right = isMobile ? "12px" : "14px"
+    root.style.zIndex = "2147483000"
+
+    if (isMobile) {
+      root.style.top = "auto"
+      root.style.bottom = "12px"
+      root.style.transform = "none"
+    } else {
+      root.style.top = "90%"
+      root.style.bottom = "auto"
+      root.style.transform = "translateY(-50%)"
+    }
+  }
+
+  applyFloatingPosition()
+  window.addEventListener("resize", applyFloatingPosition)
+
+  const API_URL = "/api/chat"
+
+  const addMessage = (text, role = "bot") => {
+    const el = document.createElement("div")
+    el.className = `rag-msg ${role === "user" ? "rag-msg-user" : "rag-msg-bot"}`
+    el.textContent = text
+    messages.appendChild(el)
+    messages.scrollTop = messages.scrollHeight
+    return el
+  }
+
+  const openPanel = () => {
+    panel.classList.add("open")
+    panel.setAttribute("aria-hidden", "false")
+    setTimeout(() => input.focus(), 50)
+  }
+
+  const closePanel = () => {
+    panel.classList.remove("open")
+    panel.setAttribute("aria-hidden", "true")
+  }
+
+  bubble.addEventListener("click", () => {
+    if (panel.classList.contains("open")) {
+      closePanel()
+    } else {
+      openPanel()
+    }
+  })
+
+  openers.forEach((opener) => {
+    opener.addEventListener("click", () => {
+      openPanel()
+      input.focus()
+    })
+  })
+
+  closeBtn?.addEventListener("click", closePanel)
+
+  const ask = async (question) => {
+    if (!question.trim()) return
+    addMessage(question, "user")
+
+    const botEl = addMessage("", "bot")
+    cta?.classList.remove("visible")
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: question }),
+      })
+
+      if (!res.ok || !res.body) {
+        throw new Error("Chat service is unavailable.")
+      }
+
+      const reader = res.body.getReader()
+      const decoder = new TextDecoder()
+      let buffer = ""
+      let answer = ""
+
+      while (true) {
+        const { value, done } = await reader.read()
+        if (done) break
+
+        buffer += decoder.decode(value, { stream: true })
+        const events = buffer.split("\n\n")
+        buffer = events.pop() || ""
+
+        for (const event of events) {
+          if (!event.startsWith("data:")) continue
+          const raw = event.slice(5).trim()
+          if (!raw) continue
+
+          let payload
+          try {
+            payload = JSON.parse(raw)
+          } catch {
+            continue
+          }
+
+          if (payload.type === "chunk") {
+            answer += payload.text || ""
+            botEl.textContent = answer
+            messages.scrollTop = messages.scrollHeight
+          }
+
+          if (payload.type === "error") {
+            botEl.textContent = payload.message || "Something went wrong."
+          }
+        }
+      }
+
+      if (answer.includes("[CTA_CONTACT]")) {
+        botEl.textContent = answer.replace("[CTA_CONTACT]", "").trim()
+        cta?.classList.add("visible")
+      }
+    } catch (err) {
+      botEl.textContent = err.message || "Unable to fetch response right now."
+    }
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault()
+    const q = input.value.trim()
+    if (!q) return
+    input.value = ""
+    await ask(q)
+  })
+
+  chips.forEach((chip) => {
+    chip.addEventListener("click", async () => {
+      const q = chip.getAttribute("data-q") || ""
+      if (!q) return
+      await ask(q)
+    })
+  })
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   // Render content
@@ -987,6 +1410,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize smooth scrolling
   initSmoothScrolling()
+
+  // Lazy lag animation on page load for all sections
+  initLazyLagSections()
 
   // Add event listeners for copy email buttons
   const copyEmailButtons = document.querySelectorAll(".copy-email-btn")
@@ -1035,4 +1461,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize animations
   initAnimations()
+
+  // Initialize RAG chat widget
+  initRagChatWidget()
+  ensureRagFloatingPosition()
 })

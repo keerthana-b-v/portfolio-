@@ -1,0 +1,56 @@
+
+  .experience-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  /* Experience Marquee Mobile */
+  .experience-project-card {
+    width: 280px;
+  }
+  
+  .experience-project-marquee {
+    animation-duration: 30s;
+  }
+
+  /* Education Timeline Mobile */
+  .edu-timeline-item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .edu-timeline-left {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-top: 0;
+  }
+
+  .edu-timeline-center {
+    display: none;
+  }
+
+  .edu-timeline-right {
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  .edu-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .c-hotels__item-title {
+    font-size: 1.55rem;
+  }
+  
+  .experience-project-card {
+    width: 240px;
+  }
+}

@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Ruthvik</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon-ai.svg" />
+  <link rel="shortcut icon" href="assets/favicon-ai.svg" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Add Three.js for background effects -->
@@ -22,18 +24,20 @@
         <div class="logo">Ruthvik A</div>
         <div class="nav-links">
           <button class="nav-link" data-scroll="experience">Experience</button>
-          <button class="nav-link" data-scroll="education">Education</button>
-          <button class="nav-link" data-scroll="hackathons">Hackathons</button>
           <button class="nav-link" data-scroll="projects">Projects</button>
+          <button class="nav-link" data-scroll="blog">Blog</button>
           <button class="nav-link" data-scroll="skills">Skills</button>
           <button class="nav-link" data-scroll="contact">Contact</button>
         </div>
-        <button class="resume-btn">
-          <a href="https://drive.google.com/file/d/1yzlEKVJ5R_X9hfYH_tu0lBJVrRvFVDwe/view?usp=drivesdk"
-            class="resume-btn" target="_blank">
+        <div class="nav-actions">
+          <a href="https://github.com/ruthvik-172004" class="resume-btn github-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="Ruthvik.pdf"
+            class="resume-btn" target="_blank" rel="noopener noreferrer">
             <i class="fas fa-download"></i> Resume
           </a>
-        </button>
+        </div>
       </div>
     </div>
   </nav>
@@ -44,8 +48,8 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <h2 class="subtitle">Ruthvik A</h2>
-          <h1 class="title">Aspiring <span class="highlight">Emerging Tech </span>Enthusiast </h1>
+          <h2 class="subtitle"></h2>
+          <h1 class="title">Full Stack <span class="highlight">Developer</span> + Applied AI</h1>
           <p class="description">
             Motivated tech enthusiast with hands-on experience in cloud infrastructure, IoT systems, and AI-powered
             applications. Skilled in end-to-end solution development, leveraging tools like AWS, Docker, and React to
@@ -54,8 +58,8 @@
           </p>
           <div class="hero-buttons">
             <button class="primary-btn" data-scroll="contact">Hire Me</button>
-            <button class="secondary-btn copy-email-btn">
-              Copy Gmail <i class="fas fa-envelope"></i>
+            <button class="secondary-btn ask-ai-hero-btn" type="button" data-open-rag-chat>
+              Ask AI <i class="fas fa-robot"></i>
             </button>
           </div>
         </div>
@@ -90,62 +94,14 @@
     <div class="section-bg-3d" id="experience-bg"></div>
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Work <span class="highlight">Experience</span></h2>
+        <p class="section-kicker">01 - Work Experience</p>
+        <h2 class="section-title">Where I've <span class="highlight">Shipped</span></h2>
         <p class="section-description">
-          My professional journey and the organizations I've contributed to.
+          Production systems, client delivery, and full-stack execution under real deadlines.
         </p>
       </div>
       <div class="experience-grid">
         <!-- Experience cards will be inserted here by JavaScript -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section class="education section" id="education">
-    <div class="section-bg-3d" id="education-bg"></div>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title"><span class="highlight">Education</span> Background</h2>
-        <p class="section-description">
-          My academic journey that has shaped my knowledge and skills in computer science and technology.
-        </p>
-      </div>
-      <div class="education-grid">
-        <!-- Education cards will be inserted here by JavaScript -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Hackathons Section -->
-  <section class="hackathons section" id="hackathons">
-    <div class="section-bg-3d" id="hackathons-bg"></div>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title"><span class="highlight">Hackathons</span> & Competitions</h2>
-        <p class="section-description">
-          Challenging myself in competitive environments to create innovative solutions under pressure.
-        </p>
-      </div>
-      <div class="hackathons-grid">
-        <!-- Hackathon cards will be inserted here by JavaScript -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="projects section" id="projects">
-    <div class="section-bg-3d" id="projects-bg"></div>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
-        <p class="section-description">
-          Showcasing my technical skills and problem-solving abilities through real-world applications and
-          innovative solutions.
-        </p>
-      </div>
-      <div class="projects-grid">
-        <!-- Project cards will be inserted here by JavaScript -->
       </div>
     </div>
   </section>
@@ -155,16 +111,147 @@
     <div class="section-bg-3d" id="skills-bg"></div>
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
+        <p class="section-kicker">02 - Technical Stack</p>
+        <h2 class="section-title">Tools I <span class="highlight">Trust</span></h2>
         <p class="section-description">
-          Core competencies and technologies I've mastered throughout my learning journey.
+          The exact technologies I use to design, build, deploy, and scale real products.
         </p>
       </div>
-      <div class="skills-grid">
+      <div id="skills-grid">
         <!-- Skill cards will be inserted here by JavaScript -->
       </div>
+    </div>
+  </section>
 
-      <!-- Additional Information -->
+  <!-- Education Section -->
+  <section class="education section" id="education">
+    <div class="section-bg-3d" id="education-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">03 - Education</p>
+        <h2 class="section-title">How I <span class="highlight">Learned</span></h2>
+        <p class="section-description">
+          The academic foundation that shaped my engineering mindset and execution discipline.
+        </p>
+      </div>
+      <div class="education-grid">
+        <!-- Education cards will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Projects Section -->
+  <section class="projects section" id="projects">
+    <div class="section-bg-3d" id="projects-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">04 - Featured Projects</p>
+        <h2 class="section-title">What I've <span class="highlight">Built</span></h2>
+        <p class="section-description">
+          End-to-end products shipped with measurable impact across AI, full-stack, and production delivery.
+        </p>
+      </div>
+      <div id="projects-grid">
+        <!-- Project cards will be inserted here by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="blog section" id="blog">
+    <div class="section-bg-3d" id="blog-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">05 - Writing</p>
+        <h2 class="section-title">What I <span class="highlight">Publish</span></h2>
+        <p class="section-description">
+          Practical engineering insights on AI systems, trade-offs, and responsible implementation.
+        </p>
+      </div>
+
+      <div class="blog-feature-card">
+        <div class="blog-main">
+          <div class="blog-label">01 - Engineering Perspective</div>
+          <h3 class="blog-title">The Hidden Cost of AI: What Engineers Built and Only Engineers Can Fix</h3>
+          <p class="blog-summary">
+            This piece explores the real-world cost of AI systems beyond model accuracy, focusing on reliability,
+            transparency, maintainability, and downstream risk.
+          </p>
+          <p class="blog-summary">
+            It argues that engineers must own the full lifecycle of AI products, from architecture and deployment decisions
+            to safeguards, monitoring, and long-term accountability.
+          </p>
+
+          <div class="blog-actions">
+            <a href="https://beneaththeprompt.hashnode.dev/the-hidden-cost-of-ai-what-engineers-built-and-only-engineers-can-fix"
+              target="_blank" rel="noopener noreferrer" class="blog-primary-btn">
+              <i class="fa-brands fa-hashnode"></i>
+              Read on Hashnode
+            </a>
+            <a href="https://www.linkedin.com/posts/ruthvik-rah_every-time-we-hit-send-on-a-prompt-a-bottle-activity-7449738552986271744-YuSv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZFCZ0BjN_IPsFsHwHTGw9rc4vNgLhmWWE"
+              target="_blank" rel="noopener noreferrer" class="blog-primary-btn blog-secondary-btn">
+              <i class="fa-brands fa-linkedin"></i>
+              View on LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <aside class="blog-side">
+          <div class="blog-side-title">Blog Snapshot</div>
+          <div class="blog-metrics">
+            <div class="blog-metric">
+              <span class="blog-metric-value">AI Ops</span>
+              <span class="blog-metric-label">Core Theme</span>
+            </div>
+            <div class="blog-metric">
+              <span class="blog-metric-value">System Risk</span>
+              <span class="blog-metric-label">Key Lens</span>
+            </div>
+            <div class="blog-metric">
+              <span class="blog-metric-value">Hashnode</span>
+              <span class="blog-metric-label">Platform</span>
+            </div>
+            <div class="blog-metric">
+              <span class="blog-metric-value">Engineering</span>
+              <span class="blog-metric-label">Category</span>
+            </div>
+          </div>
+          <a class="blog-side-link"
+            href="https://beneaththeprompt.hashnode.dev/the-hidden-cost-of-ai-what-engineers-built-and-only-engineers-can-fix"
+            target="_blank" rel="noopener noreferrer">View full article</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hackathons Section -->
+  <section class="hackathons section" id="hackathons">
+    <div class="section-bg-3d" id="hackathons-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">06 - Competitions</p>
+        <h2 class="section-title">How I <span class="highlight">Compete</span></h2>
+        <p class="section-description">
+          Rapid builds under pressure, turning constraints into working prototypes and ideas into execution.
+        </p>
+      </div>
+      <div class="hackathons-grid">
+        <!-- Hackathon cards will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Info Cards -->
+  <section class="info-section section" id="more-info">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">07 - Extra Highlights</p>
+        <h2 class="section-title">Beyond the <span class="highlight">Resume</span></h2>
+        <p class="section-description">
+          Credentials, languages, and achievements that strengthen my overall profile.
+        </p>
+      </div>
       <div class="additional-info">
         <!-- Additional info cards will be inserted here by JavaScript -->
       </div>
@@ -176,9 +263,10 @@
     <div class="section-bg-3d" id="contact-bg"></div>
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+        <p class="section-kicker">08 - Contact</p>
+        <h2 class="section-title">Let's <span class="highlight">Build</span></h2>
         <p class="section-description">
-          Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+          Open to impactful roles, product collaborations, and high-ownership engineering opportunities.
         </p>
       </div>
 
@@ -215,7 +303,7 @@
                 </div>
                 <div class="contact-text">
                   <h4>Location</h4>
-                  <p>3rd Stage Banashankari, Bengaluru</p>
+                  <p>Banashankari, Bengaluru - 560085</p>
                 </div>
               </div>
             </div>
@@ -256,6 +344,48 @@
       </div>
     </div>
   </section>
+
+  <!-- Floating RAG Chat Widget -->
+  <div id="rag-chat-root" class="rag-chat-root">
+    <button id="rag-chat-bubble" class="rag-chat-bubble" aria-label="Open AI chat assistant">
+      <i class="fas fa-robot"></i>
+      <span>Ask AI</span>
+    </button>
+
+    <div id="rag-chat-panel" class="rag-chat-panel" aria-hidden="true">
+      <div class="rag-chat-header">
+        <div class="rag-chat-title-wrap">
+          <h3 class="rag-chat-title">Ruthvik AI Assistant</h3>
+          <p class="rag-chat-subtitle">Portfolio-aware RAG chat</p>
+        </div>
+        <button id="rag-chat-close" class="rag-chat-close" aria-label="Close chat">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div id="rag-chat-messages" class="rag-chat-messages">
+        <div class="rag-msg rag-msg-bot">Hi! Ask me anything about Ruthvik's work, stack, or projects.</div>
+      </div>
+
+      <div class="rag-chat-chips">
+        <button class="rag-chip" data-q="Tell me about Ruthvik">Tell me about Ruthvik</button>
+        <button class="rag-chip" data-q="What AI stack?">What AI stack?</button>
+        <button class="rag-chip" data-q="What's he building now?">What's he building now?</button>
+        <button class="rag-chip" data-q="How to contact">How to contact</button>
+      </div>
+
+      <form id="rag-chat-form" class="rag-chat-form">
+        <input id="rag-chat-input" type="text" placeholder="Ask about projects, skills, or experience..." autocomplete="off" />
+        <button type="submit" class="rag-send-btn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+
+      <a id="rag-contact-cta" class="rag-contact-cta" href="mailto:ruthvikarh@gmail.com" target="_blank" rel="noopener noreferrer">
+        Contact Ruthvik ->
+      </a>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
