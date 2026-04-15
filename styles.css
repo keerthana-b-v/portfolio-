@@ -547,10 +547,12 @@ h6 {
 }
 
 .section-title {
-  font-size: clamp(2.2rem, 5.5vw, 4.3rem);
-  font-weight: 800;
-  line-height: 1.04;
-  letter-spacing: -0.03em;
+  font-size: 2.5rem;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
   margin: 0 0 1rem;
   position: relative;
   display: block;
@@ -1684,6 +1686,10 @@ h6 {
     font-size: 3rem;
   }
 
+  .section-title {
+    font-size: 3rem;
+  }
+
   .projects-grid,
   .hackathons-grid,
   .skills-grid,
@@ -1723,6 +1729,10 @@ h6 {
 
 @media (min-width: 1024px) {
   .title {
+    font-size: 3.5rem;
+  }
+
+  .section-title {
     font-size: 3.5rem;
   }
 
@@ -2241,7 +2251,7 @@ h6 {
 
 @media (max-width: 480px) {
   .section-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .c-hotels__item-title {
