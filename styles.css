@@ -305,6 +305,28 @@ h6 {
   width: 100%;
 }
 
+.hero-name {
+  margin: 0 0 0.45rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.hero-open-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.68rem;
+  border-radius: 999px;
+  margin: 0 0 0.95rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #b7f7ca;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.36);
+}
+
 .subtitle {
   color: var(--purple-500);
   font-size: 4.25rem;
@@ -313,8 +335,28 @@ h6 {
   animation: pulse 2s infinite alternate;
 }
 
+.hero-tagline {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  margin-bottom: 1rem;
+  margin-top: -0.25rem;
+  letter-spacing: 0.2px;
+}
+
+.hero-tagline-link {
+  color: var(--purple-400);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.hero-tagline-link:hover {
+  color: var(--purple-300);
+  text-decoration: underline;
+}
+
 .title {
-  font-size: 2.5rem;
+  font-size: 2.375rem;
   margin-bottom: 1rem;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
@@ -1682,8 +1724,12 @@ h6 {
 
 /* Media Queries */
 @media (min-width: 640px) {
+  .hero-name {
+    font-size: 1.9rem;
+  }
+
   .title {
-    font-size: 3rem;
+    font-size: 2.875rem;
   }
 
   .section-title {
@@ -1728,8 +1774,12 @@ h6 {
 }
 
 @media (min-width: 1024px) {
+  .hero-name {
+    font-size: 2rem;
+  }
+
   .title {
-    font-size: 3.5rem;
+    font-size: 3.375rem;
   }
 
   .section-title {
@@ -1766,7 +1816,7 @@ h6 {
 
 .experience-card {
   background: linear-gradient(to bottom right, var(--gray-900), var(--black));
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 0.75rem;
   border: 1px solid rgba(59, 130, 246, 0.2);
   transition: all 0.5s ease;
@@ -1784,8 +1834,8 @@ h6 {
 .experience-header-content {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1.1rem;
+  margin-bottom: 1.05rem;
 }
 
 .experience-icon {
@@ -2496,6 +2546,38 @@ h6 {
   background: rgba(138,43,226,0.25);
   color: #ffffff;
   border-color: rgba(138,43,226,0.6);
+}
+
+/* Currently-Building title + badge row */
+.pc-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.building-badge {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.28rem 0.72rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 0.15rem;
+}
+
+.building-badge--green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.building-badge--amber {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
 }
 
 /* ══════════════════════════════════════

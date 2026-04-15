@@ -53,12 +53,6 @@ const experience = [
         image: "assets/surfschool.png"
       },
       {
-        name: "Triuss Tech Corporate Site",
-        description: "Professional corporate website for a technology firm, highlighting services, portfolio, and client testimonials.",
-        link: "https://triuss.in/",
-        image: "assets/triuss.png"
-      },
-      {
         name: "Research Visions",
         description: "A technology website for Research Vision Tech Services showcasing modular AV products, visual systems, and implementation services. Structured to highlight enterprise use cases, industry verticals, and end-to-end project delivery capabilities.",
         link: "https://researchvisions.com/",
@@ -563,7 +557,8 @@ function renderExperience() {
     `
     experienceGrid.appendChild(expInfoCard)
 
-    // 2. Projects Grid (Separate Container)
+    // 2. Projects Grid (Separate Container) — skip if no projects
+    if (!exp.projects || exp.projects.length === 0) return
     const projectsContainer = document.createElement("div")
     projectsContainer.className = "experience-projects-full-width"
     projectsContainer.innerHTML = `<h4 class="experience-projects-title">Projects Delivered During Tenure</h4>`
