@@ -3,6 +3,7 @@ import cors from "cors";
 import { config, validateRuntimeConfig } from "./config.js";
 import { embedQuery, retrieveTopChunks } from "./retrieval.js";
 import { buildContextBlock, buildSystemPrompt, buildUserPrompt, routeModel } from "./prompt.js";
+import Groq from "groq-sdk";
 
 const app = express();
 app.use(cors());
@@ -12,64 +13,29 @@ function writeSse(res, payload) {
   res.write(`data: ${JSON.stringify(payload)}\n\n`);
 }
 
-async function streamClaude({ model, system, userContent, apiKey, onText }) {
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
-    },
-    body: JSON.stringify({
-      model,
-      max_tokens: 800,
-      stream: true,
-      system,
-      messages: [{ role: "user", content: userContent }],
-    }),
+async function streamGroq({ system, userContent, apiKey, onText }) {
+  const groq = new Groq({ apiKey });
+  const chatCompletion = await groq.chat.completions.create({
+    messages: [
+      { role: "system", content: system },
+      { role: "user", content: userContent }
+    ],
+    model: "llama-3.1-8b-instant", // Using Groq's lightning fast model natively!
+    temperature: 0.3,
+    max_tokens: 1024,
+    stream: true,
   });
 
-  if (!response.ok || !response.body) {
-    const text = await response.text();
-    throw new Error(`Anthropic API error: ${response.status} ${text}`);
-  }
-
-  const reader = response.body.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
-
-  while (true) {
-    const { value, done } = await reader.read();
-    if (done) break;
-
-    buffer += decoder.decode(value, { stream: true });
-    const events = buffer.split("\n\n");
-    buffer = events.pop() || "";
-
-    for (const event of events) {
-      const line = event.split("\n").find((l) => l.startsWith("data:"));
-      if (!line) continue;
-
-      const dataRaw = line.slice(5).trim();
-      if (dataRaw === "[DONE]") continue;
-
-      try {
-        const data = JSON.parse(dataRaw);
-        if (data.type === "content_block_delta" && data.delta?.type === "text_delta") {
-          onText(data.delta.text || "");
-        }
-      } catch {
-        // Ignore malformed event chunks.
-      }
-    }
+  for await (const chunk of chatCompletion) {
+    onText(chunk.choices[0]?.delta?.content || "");
   }
 }
 
-app.get("/health", (_, res) => {
+app.get(["/health", "/api/health"], (_, res) => {
   res.json({ ok: true, service: "ruthvik-rag-api" });
 });
 
-app.post("/chat", async (req, res) => {
+app.post(["/chat", "/api/chat"], async (req, res) => {
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
   res.setHeader("Connection", "keep-alive");
@@ -92,25 +58,18 @@ app.post("/chat", async (req, res) => {
       retrieved: topChunks.length,
     });
 
-    if (bestSimilarity < config.similarityThreshold) {
-      writeSse(res, {
-        type: "chunk",
-        text: "I don't have enough verified context for that yet. Please reach out directly at ruthvikarh@gmail.com for accurate details. [CTA_CONTACT]",
-      });
-      writeSse(res, { type: "done" });
-      return res.end();
-    }
+    // Optional soft logging for similarity
+    // if (bestSimilarity < config.similarityThreshold) console.log("Low similarity match, relying on system prompt baseline.");
 
     const contextBlock = buildContextBlock(topChunks);
     const system = buildSystemPrompt();
     const prompt = buildUserPrompt(userMessage, contextBlock);
     const model = routeModel(userMessage);
 
-    await streamClaude({
-      model,
+    await streamGroq({
       system,
       userContent: prompt,
-      apiKey: config.anthropicApiKey,
+      apiKey: config.groqApiKey,
       onText: (text) => writeSse(res, { type: "chunk", text }),
     });
 
@@ -127,12 +86,21 @@ async function start() {
     validateRuntimeConfig();
   } catch (e) {
     console.error(e.message);
-    process.exit(1);
+    // Don't exit process on Vercel, just log
+    if (process.env.NODE_ENV !== 'production') {
+      process.exit(1);
+    }
   }
 
-  app.listen(config.port, () => {
-    console.log(`RAG API running on http://localhost:${config.port}`);
-  });
+  // Only listen on a port if run locally. Vercel automatically maps exported apps.
+  if (process.env.NODE_ENV !== 'production') {
+    app.listen(config.port, () => {
+      console.log(`RAG API running on http://localhost:${config.port}`);
+    });
+  }
 }
 
 start();
+
+// EXPORT the app so Vercel can treat it as a Serverless Function!
+export default app;

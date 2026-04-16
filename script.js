@@ -1247,27 +1247,10 @@ function initRagChatWidget() {
     document.documentElement.appendChild(root)
   }
 
-  const applyFloatingPosition = () => {
-    const isMobile = window.matchMedia("(max-width: 640px)").matches
-    root.style.position = "fixed"
-    root.style.right = isMobile ? "12px" : "14px"
-    root.style.zIndex = "2147483000"
+  // No longer applying JS positioning. CSS handles it via .rag-chat-root { bottom: 1.5rem; right: 1.5rem; }
 
-    if (isMobile) {
-      root.style.top = "auto"
-      root.style.bottom = "12px"
-      root.style.transform = "none"
-    } else {
-      root.style.top = "90%"
-      root.style.bottom = "auto"
-      root.style.transform = "translateY(-50%)"
-    }
-  }
-
-  applyFloatingPosition()
-  window.addEventListener("resize", applyFloatingPosition)
-
-  const API_URL = "/api/chat"
+  const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+  const API_URL = isLocal ? "http://localhost:4000/chat" : "/api/chat";
 
   const addMessage = (text, role = "bot") => {
     const el = document.createElement("div")

@@ -1,32 +1,31 @@
 import fs from "fs/promises";
-import OpenAI from "openai";
+import { pipeline } from "@xenova/transformers";
 import { config, validateRuntimeConfig } from "./config.js";
 import { pool, vectorToSql } from "./db.js";
 
 async function main() {
-  validateRuntimeConfig();
+  // Bypassing OpenAI validation since we are using local models
+  // validateRuntimeConfig();
 
   const inputPath = process.argv[2] || "./data/chunks.json";
   const raw = await fs.readFile(inputPath, "utf-8");
   const chunks = JSON.parse(raw);
 
   if (!Array.isArray(chunks) || chunks.length === 0) {
-    throw new Error("No chunks found. Run ingest:docx first.");
+    throw new Error("No chunks found. Run ingest logs first.");
   }
 
-  const openai = new OpenAI({ apiKey: config.openAiApiKey });
+  console.log("Loading AI model. This might take 10 seconds the first time...");
+  const embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
 
   await pool.query("DELETE FROM kb_chunks");
 
   for (let i = 0; i < chunks.length; i++) {
     const chunk = chunks[i];
 
-    const emb = await openai.embeddings.create({
-      model: config.openAiEmbeddingModel,
-      input: chunk.content,
-    });
-
-    const embedding = emb.data[0].embedding;
+    const result = await embedder(chunk.content, { pooling: "mean", normalize: true });
+    // result.data is a Float32Array containing the 384 dimensions
+    const embedding = Array.from(result.data);
     const embeddingSql = vectorToSql(embedding);
 
     await pool.query(

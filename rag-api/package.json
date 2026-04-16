@@ -7,12 +7,17 @@
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
     "ingest:docx": "node src/ingest-docx.js ../assets/rag/Ruthvik_RAG_KnowledgeBase_v2.docx ./data/chunks.json",
-    "embed:store": "node src/embed-and-store.js ./data/chunks.json"
+    "ingest:github": "node src/ingest-github.js",
+    "embed:store": "node src/embed-and-store.js ./data/chunks.json",
+    "embed:store:github": "node src/embed-and-store.js ./data/github-chunks.json"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@xenova/transformers": "^2.17.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.2",
+    "groq-sdk": "^1.1.2",
     "mammoth": "^1.8.0",
     "openai": "^4.67.3",
     "pg": "^8.13.0"

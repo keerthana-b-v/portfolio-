@@ -1,15 +1,16 @@
-import OpenAI from "openai";
+import { pipeline } from "@xenova/transformers";
 import { config } from "./config.js";
 import { pool, vectorToSql } from "./db.js";
 
-const openai = new OpenAI({ apiKey: config.openAiApiKey });
+// We keep a singleton instance of the pipeline
+let embedderInstance = null;
 
 export async function embedQuery(query) {
-  const emb = await openai.embeddings.create({
-    model: config.openAiEmbeddingModel,
-    input: query,
-  });
-  return emb.data[0].embedding;
+  if (!embedderInstance) {
+    embedderInstance = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
+  }
+  const result = await embedderInstance(query, { pooling: "mean", normalize: true });
+  return Array.from(result.data);
 }
 
 export async function retrieveTopChunks(queryVector, limit = 5) {
