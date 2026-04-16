@@ -1,5 +1,8 @@
-import { pipeline } from "@xenova/transformers";
+import { env, pipeline } from "@xenova/transformers";
 import { config } from "./config.js";
+
+// Ensure Vercel Serverless doesn't crash from Read-Only Filesystem errors
+env.cacheDir = "/tmp/";
 import { pool, vectorToSql } from "./db.js";
 
 // We keep a singleton instance of the pipeline
