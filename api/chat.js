@@ -6,6 +6,7 @@ const { Pool } = pg;
 
 // Vercel Cache Fix
 env.cacheDir = "/tmp/";
+env.allowLocalModels = false;
 
 let embedderInstance = null;
 const pool = new Pool({
