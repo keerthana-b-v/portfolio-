@@ -1,47 +1,35 @@
-import fs from "fs/promises";
+import fs from "fs";
+import path from "path";
 import { pipeline } from "@xenova/transformers";
-import { config, validateRuntimeConfig } from "./config.js";
 import { pool, vectorToSql } from "./db.js";
+import { validateRuntimeConfig } from "./config.js";
 
-async function main() {
-  // Bypassing OpenAI validation since we are using local models
-  // validateRuntimeConfig();
-
-  const inputPath = process.argv[2] || "./data/chunks.json";
-  const raw = await fs.readFile(inputPath, "utf-8");
-  const chunks = JSON.parse(raw);
-
-  if (!Array.isArray(chunks) || chunks.length === 0) {
-    throw new Error("No chunks found. Run ingest logs first.");
-  }
-
-  console.log("Loading AI model. This might take 10 seconds the first time...");
+async function run() {
+  validateRuntimeConfig();
+  const chunksPath = path.join(process.cwd(), "data", "kb-chunks.json");
+  const chunks = JSON.parse(fs.readFileSync(chunksPath, "utf-8"));
+  
   const embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
-
-  await pool.query("DELETE FROM kb_chunks");
-
+  console.log(`Starting embedding for ${chunks.length} chunks...`);
+  
   for (let i = 0; i < chunks.length; i++) {
     const chunk = chunks[i];
-
-    const result = await embedder(chunk.content, { pooling: "mean", normalize: true });
-    // result.data is a Float32Array containing the 384 dimensions
-    const embedding = Array.from(result.data);
-    const embeddingSql = vectorToSql(embedding);
-
+    const output = await embedder(chunk.content, { pooling: "mean", normalize: true });
+    const embedding = Array.from(output.data);
+    
     await pool.query(
-      `INSERT INTO kb_chunks (content, metadata, embedding) VALUES ($1, $2::jsonb, $3::vector)`,
-      [chunk.content, JSON.stringify({ type: chunk.type, section: chunk.section, keywords: chunk.keywords || [] }), embeddingSql],
+      `INSERT INTO kb_chunks (content, metadata, embedding) VALUES ($1, $2, $3::vector)`,
+      [chunk.content, JSON.stringify(chunk.metadata), vectorToSql(embedding)]
     );
-
-    console.log(`Stored chunk ${i + 1}/${chunks.length}`);
+    
+    if ((i + 1) % 5 === 0) console.log(`Stored ${i + 1}/${chunks.length} chunks`);
   }
-
-  await pool.end();
-  console.log("Embedding + storage complete.");
+  
+  console.log("Done storing all chunks!");
+  process.exit(0);
 }
 
-main().catch(async (err) => {
-  console.error(err.message);
-  await pool.end();
+run().catch(err => {
+  console.error(err);
   process.exit(1);
 });

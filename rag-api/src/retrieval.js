@@ -1,11 +1,9 @@
-import { env, pipeline } from "@xenova/transformers";
+import { pipeline, env } from "@xenova/transformers";
 import { config } from "./config.js";
-
-// Ensure Vercel Serverless doesn't crash from Read-Only Filesystem errors
-env.cacheDir = "/tmp/";
 import { pool, vectorToSql } from "./db.js";
 
-// We keep a singleton instance of the pipeline
+env.cacheDir = "/tmp/";
+
 let embedderInstance = null;
 
 export async function embedQuery(query) {
@@ -19,15 +17,8 @@ export async function embedQuery(query) {
 export async function retrieveTopChunks(queryVector, limit = 5) {
   const vectorSql = vectorToSql(queryVector);
   const { rows } = await pool.query(
-    `SELECT id, content, metadata, (embedding <=> $1::vector) AS distance
-     FROM kb_chunks
-     ORDER BY embedding <=> $1::vector
-     LIMIT $2`,
-    [vectorSql, limit],
+    `SELECT id, content, metadata FROM match_kb_chunks($1::vector, $2, $3)`,
+    [vectorSql, config.similarityThreshold, limit]
   );
-
-  return rows.map((r) => ({
-    ...r,
-    similarity: 1 - Number(r.distance),
-  }));
+  return rows;
 }

@@ -5,9 +5,9 @@ const { Pool } = pg;
 
 export const pool = new Pool({
   connectionString: config.databaseUrl,
-  ssl: { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: false }
 });
 
-export function vectorToSql(vec) {
-  return `[${vec.join(",")}]`;
+export function vectorToSql(v) {
+  return `[${v.join(",")}]`;
 }
