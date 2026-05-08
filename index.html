@@ -992,21 +992,26 @@
         }
 
         .skills-sidebar-stat {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skills-sidebar-stat:first-of-type {
+            border-top: 1px solid var(--border);
+            margin-top: 24px;
         }
 
         .sss-n {
             font-family: var(--display);
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 800;
             color: var(--accent);
             letter-spacing: -0.03em;
             line-height: 1;
+            min-width: 65px;
         }
 
         .sss-l {
@@ -1014,7 +1019,8 @@
             font-size: 10px;
             color: var(--text-3);
             letter-spacing: 0.06em;
-            margin-top: 6px;
+            text-transform: uppercase;
+            line-height: 1.4;
         }
 
         .skills-groups {
@@ -1131,6 +1137,56 @@
             object-fit: cover;
             object-position: center center;
             display: block;
+        }
+
+        .badge-card .live-demo-image img {
+            object-fit: contain;
+            padding: 8px;
+            background: #fff;
+        }
+
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .badge-card {
+            min-height: auto !important;
+            max-height: none !important;
+        }
+
+        .badge-card .live-demo-image {
+            min-height: 160px !important;
+            height: 160px !important;
+        }
+
+        .badge-card .live-demo-title {
+            font-size: 15px !important;
+            line-height: 1.3 !important;
+        }
+
+        .badge-card .live-demo-copy {
+            font-size: 12px !important;
+            margin-bottom: 8px !important;
+        }
+
+        .badge-card .demo-link {
+            padding: 8px 12px !important;
+            font-size: 11px !important;
+        }
+
+        @media (max-width: 900px) {
+            .badge-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .badge-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .live-demo-content {
@@ -1801,9 +1857,8 @@
 
             .skills-sidebar {
                 position: static;
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                gap: 16px;
+                display: block;
+                margin-bottom: 40px;
             }
 
             .skills-sidebar-title,
@@ -1997,7 +2052,7 @@
             }
 
             .skills-sidebar {
-                grid-template-columns: 1fr 1fr;
+                display: block;
             }
 
             /* Projects Responsiveness */
@@ -2058,7 +2113,7 @@
             }
 
             .skills-sidebar {
-                grid-template-columns: 1fr;
+                display: block;
                 position: relative;
                 top: 0;
                 margin-bottom: 32px;
@@ -2225,10 +2280,10 @@
     <nav id="nav">
         <a href="#" class="nav-wordmark">kbv<em>.</em>dev</a>
         <ul class="nav-center" id="navlinks">
-            <li><a href="#experience">Work</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#research">Research</a></li>
+            <li><a href="#work" class="nav-link">Work</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#badges" class="nav-link">Badges</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
             <li><a href="#about">About</a></li>
         </ul>
         <div class="nav-right">
@@ -2260,8 +2315,8 @@
             <div class="hero-sub-row reveal d2">
                 <p class="hero-desc">
                     I build and ship — not demos, not tutorials.<br />
-                    <strong>Promoted intern → developer in 3 months.</strong><br />
-                    8+ production apps. Legal AI at 84.9% F1. Real servers, real clients, real code.
+                    <strong>8+ production apps delivered.</strong> Legal AI at 84.9% F1.<br />
+                    Real servers, real clients, real code.
                 </p>
                 <div class="hero-ctas">
                     <a href="#projects" class="btn-primary">
@@ -2314,17 +2369,10 @@
                 <div class="exp-header">
                     <div>
                         <div class="exp-company">ASPL Tech Solutions Pvt. Ltd.</div>
-                        <div class="exp-promo-tag">
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5">
-                                <path d="M18 15l-6-6-6 6" />
-                            </svg>
-                            Promoted intern → full-time in 3 months
-                        </div>
                     </div>
                     <div style="text-align:right;">
                         <div class="exp-role">Full Stack Developer</div>
-                        <div class="exp-period desktop-only">Oct 2025 – Present · Bengaluru, India</div>
+                        <div class="exp-period desktop-only">Oct 2025 – March 2026 · Bengaluru, India</div>
                         <div class="exp-date mobile-only">Oct 2025 – March 2026</div>
                         <div class="exp-location mobile-only">Bengaluru, India</div>
                     </div>
@@ -2333,38 +2381,19 @@
                 <div class="exp-bullets">
                     <div class="exp-bullet">
                         <div class="bullet-icon"></div>
-                        <p class="bullet-text">Shipped <strong>8+ production web apps</strong> using React.js, Node.js,
-                            Express.js, and PostgreSQL — each delivered on deadline, deployed to live infrastructure.
-                        </p>
+                        <p class="bullet-text">Architected and deployed <strong>8+ production web applications</strong> using React.js, Node.js, and PostgreSQL for clients across 4+ industries; practiced **Agile methodologies** with 100% on-time delivery.</p>
                     </div>
                     <div class="exp-bullet">
                         <div class="bullet-icon"></div>
-                        <p class="bullet-text">Built a full-stack <strong>HRMS</strong> in React + Python Flask —
-                            replaced paper workflows with digital onboarding, attendance tracking, and leave management
-                            across 4 departments.</p>
+                        <p class="bullet-text">Built a full-stack <strong>HRMS platform</strong> digitizing onboarding for 4 departments, reducing administrative processing time by <strong>35%</strong>.</p>
                     </div>
                     <div class="exp-bullet">
                         <div class="bullet-icon"></div>
-                        <p class="bullet-text">Implemented <strong>RBAC</strong> using PyJWT and bcrypt — 4 distinct
-                            portals (Admin, HR, Manager, Employee) with strict per-role data isolation at every API
-                            layer.</p>
+                        <p class="bullet-text">Implemented secure RBAC with JWT/bcrypt and optimized RESTful APIs for real-time Recharts dashboards, improving client satisfaction scores by <strong>15%</strong>.</p>
                     </div>
                     <div class="exp-bullet">
                         <div class="bullet-icon"></div>
-                        <p class="bullet-text">Designed <strong>RESTful APIs</strong> via SQLAlchemy ORM over PostgreSQL
-                            for complex multi-table queries; built live Recharts dashboards for HR analytics.</p>
-                    </div>
-                    <div class="exp-bullet">
-                        <div class="bullet-icon"></div>
-                        <p class="bullet-text">Architected a <strong>Next.js 14 monorepo</strong> research platform
-                            using NPM Workspaces — separate frontend, admin, and backend apps with Prisma ORM and
-                            NextAuth.js.</p>
-                    </div>
-                    <div class="exp-bullet">
-                        <div class="bullet-icon"></div>
-                        <p class="bullet-text">Deployed <strong>3+ client sites</strong> on Hostinger Linux VPS with
-                            Nginx reverse proxy and SSL/TLS — built reusable config templates now used across all new
-                            deployments.</p>
+                        <p class="bullet-text">Configured and managed 3+ live production sites on <strong>Linux VPS</strong> using Nginx, handling full **SDLC orchestration** including SSL/TLS and domain management.</p>
                     </div>
                 </div>
                 <div class="exp-demo-list">
@@ -2446,7 +2475,7 @@
                     <div class="pexp open">
                     <div class="pexi">
                         <div class="e-problem"><p class="ebl">Problem</p><p class="ebt">Legal teams spend hours manually reviewing contracts for risk clauses — no consistency, no audit trail, no scale.</p></div>
-                        <div class="e-solution"><p class="ebl">What I Built</p><p class="ebt">Full-stack MERN app for real-time AI-driven clause extraction from PDFs and Word documents. Fine-tuned BERT with OpenAI API to produce plain-language risk summaries. Trust & Safety module includes PII redaction and live fairness auditing.</p></div>
+                        <div class="e-solution"><p class="ebl">What I Built</p><p class="ebt">Full-stack MERN app for real-time AI-driven clause extraction from PDFs and Word documents. Managed the full **SDLC** from model fine-tuning to deployment. Integrated a Trust & Safety module with automated PII redaction and live fairness auditing.</p></div>
                         <div class="e-decision"><p class="ebl">Key Engineering Decision</p><p class="ebt">Fine-tuned BERT on the CUAD benchmark instead of relying on prompt engineering alone — because 84.9% F1 is a number you can defend in a paper and in production. Measurable over impressive.</p></div>
                         <div class="e-result"><p class="ebl">Result</p><p class="ebt" style="font-weight:500">84.9% F1, 84.7% accuracy on CUAD (510 legal contracts). Research paper presented at NCRIE-2025, KSIT — Best Paper Presentation Award.</p></div>
                     </div>
@@ -2489,14 +2518,14 @@
         </div>
     </section>
 
-    <!-- AI PROJECTS -->
+    <!-- AI PROTOTYPES -->
     <section class="section section-alt" id="ai-projects">
         <div class="container">
             <div class="section-label reveal">
                 <div class="section-label-dot"></div>
-                <span class="section-label-text">03 — Created with AI</span>
+                <span class="section-label-text">03 — AI Prototypes</span>
             </div>
-            <div class="section-title reveal d1">Created with AI</div>
+            <div class="section-title reveal d1">AI <span>Prototypes</span></div>
 
             <div class="ai-bento-grid reveal d2">
                 <article class="bento-card">
@@ -2541,12 +2570,77 @@
         </div>
     </section>
 
+    <!-- BADGES -->
+    <section class="section" id="badges">
+        <div class="container">
+            <div class="section-label reveal">
+                <div class="section-label-dot"></div>
+                <span class="section-label-text">04 — Verified Badges</span>
+            </div>
+            <div class="section-title reveal d1">Professional <span>Badges</span></div>
+
+            <div class="badge-grid reveal d2">
+                <a href="https://www.skills.google/public_profiles/7976f6ba-c32e-47ea-ba20-843a1fb18097/badges/23970377" target="_blank" rel="noopener" class="live-demo-card badge-card" style="text-decoration:none;">
+                    <div class="live-demo-image">
+                         <img src="./prompt.png" alt="Prompt Engineering Guide" />
+                    </div>
+                    <div class="live-demo-content">
+                        <div class="live-demo-title">Prompt Engineering Guide</div>
+                        <p class="live-demo-copy">Google Cloud · Issued by Google Skills</p>
+                    </div>
+                    <div class="live-demo-links">
+                        <span class="demo-link">Verify Badge</span>
+                    </div>
+                </a>
+
+                <a href="https://www.skills.google/public_profiles/7976f6ba-c32e-47ea-ba20-843a1fb18097/badges/23844269" target="_blank" rel="noopener" class="live-demo-card badge-card" style="text-decoration:none;">
+                    <div class="live-demo-image">
+                         <img src="./genai.png" alt="Introduction to Generative AI" />
+                    </div>
+                    <div class="live-demo-content">
+                        <div class="live-demo-title">Introduction to Generative AI</div>
+                        <p class="live-demo-copy">Google Cloud · Issued by Google Skills</p>
+                    </div>
+                    <div class="live-demo-links">
+                        <span class="demo-link">Verify Badge</span>
+                    </div>
+                </a>
+
+                <a href="https://www.skills.google/public_profiles/7976f6ba-c32e-47ea-ba20-843a1fb18097/badges/23851754" target="_blank" rel="noopener" class="live-demo-card badge-card" style="text-decoration:none;">
+                    <div class="live-demo-image">
+                         <img src="./llm.png" alt="Introduction to LLMs" />
+                    </div>
+                    <div class="live-demo-content">
+                        <div class="live-demo-title">Introduction to LLMs</div>
+                        <p class="live-demo-copy">Google Cloud · Issued by Google Skills</p>
+                    </div>
+                    <div class="live-demo-links">
+                        <span class="demo-link">Verify Badge</span>
+                    </div>
+                </a>
+
+                <a href="https://www.skills.google/public_profiles/7976f6ba-c32e-47ea-ba20-843a1fb18097/badges/23864844" target="_blank" rel="noopener" class="live-demo-card badge-card" style="text-decoration:none;">
+                    <div class="live-demo-image">
+                         <img src="./responsibleai.png" alt="Responsible AI" />
+                    </div>
+                    <div class="live-demo-content">
+                        <div class="live-demo-title">Responsible AI</div>
+                        <p class="live-demo-copy">Google Cloud · Issued by Google Skills</p>
+                    </div>
+                    <div class="live-demo-links">
+                        <span class="demo-link">Verify Badge</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- SKILLS -->
     <section class="section section-alt" id="skills">
         <div class="container">
             <div class="section-label reveal">
                 <div class="section-label-dot"></div>
-                <span class="section-label-text">04 — Skills</span>
+                <span class="section-label-text">05 — Skills</span>
             </div>
             <div class="section-title reveal d1">What I <span>Work With</span></div>
 
@@ -2562,6 +2656,10 @@
                     <div class="skills-sidebar-stat">
                         <div class="sss-n">3+</div>
                         <div class="sss-l">Servers configured<br />and deployed live</div>
+                    </div>
+                    <div class="skills-sidebar-stat">
+                        <div class="sss-n">4+</div>
+                        <div class="sss-l">Professional AI<br />badges verified</div>
                     </div>
                 </div>
                 <div class="skills-groups reveal d1">
@@ -2585,11 +2683,7 @@
                             <span class="skill-chip">Express.js</span>
                             <span class="skill-chip">Python</span>
                             <span class="skill-chip">Flask</span>
-                            <span class="skill-chip">REST API Design</span>
-                            <span class="skill-chip">JWT / bcrypt</span>
-                            <span class="skill-chip">SQLAlchemy ORM</span>
-                            <span class="skill-chip">Prisma ORM</span>
-                            <span class="skill-chip">NextAuth.js</span>
+                            <span class="skill-chip">REST API</span>
                         </div>
                     </div>
                     <div class="skill-group">
@@ -2601,9 +2695,26 @@
                             <span class="skill-chip">Firebase</span>
                             <span class="skill-chip">BERT (fine-tuning)</span>
                             <span class="skill-chip">OpenAI API</span>
+                            <span class="skill-chip">LangChain</span>
+                            <span class="skill-chip">Hugging Face</span>
+                            <span class="skill-chip">NLP</span>
                             <span class="skill-chip">SHAP</span>
-                            <span class="skill-chip">LIME</span>
-                            <span class="skill-chip">NLP / OCR</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-group-name">Prompt Engineering</div>
+                        <div class="skill-chips">
+                            <span class="skill-chip" title="The overarching practice of refining inputs to get better outputs.">Prompt Engineering</span>
+                            <span class="skill-chip" title="How to provide specific directions to a model.">Instruction Prompting</span>
+                            <span class="skill-chip" title="Assigning a specific persona or role to the AI to influence the tone and expertise of the response.">Role Prompting</span>
+                            <span class="skill-chip" title="Encouraging the model to show its reasoning process.">Chain of Thought (CoT)</span>
+                            <span class="skill-chip" title="A technique to improve accuracy by generating multiple reasoning paths.">Self-Consistency</span>
+                            <span class="skill-chip" title="Breaking complex tasks into a sequence of smaller, connected prompts.">Prompt Chaining</span>
+                            <span class="skill-chip" title="Combining reasoning and acting (interacting with external tools).">ReAct Prompting</span>
+                            <span class="skill-chip" title="How models can interface with specific programming functions or API">Function Calling</span>
+                            <span class="skill-chip">XML Prompting</span>
+                            <span class="skill-chip">Meta Prompting</span>
+                            <span class="skill-chip">RAG Prompting</span>
                         </div>
                     </div>
                     <div class="skill-group">
@@ -2616,7 +2727,6 @@
                             <span class="skill-chip">Netlify</span>
                             <span class="skill-chip">Vercel</span>
                             <span class="skill-chip">NPM Workspaces</span>
-                            <span class="skill-chip">Postman</span>
                             <span class="skill-chip">Jira / Agile</span>
                         </div>
                     </div>
@@ -2626,7 +2736,6 @@
                             Currently Exploring
                         </div>
                         <div class="exploring-chips">
-                            <span class="exploring-chip">LangChain</span>
                             <span class="exploring-chip">RAG pipelines</span>
                             <span class="exploring-chip">Vector databases</span>
                             <span class="exploring-chip">Next.js App Router</span>
@@ -2643,7 +2752,7 @@
         <div class="container">
             <div class="section-label reveal">
                 <div class="section-label-dot"></div>
-                <span class="section-label-text">05 — Research &amp; Publication</span>
+                <span class="section-label-text">06 — Research &amp; Publication</span>
             </div>
             <div class="section-title reveal d1">Published <span>Research</span></div>
 
@@ -2708,7 +2817,7 @@
         <div class="container">
             <div class="section-label reveal">
                 <div class="section-label-dot"></div>
-                <span class="section-label-text">06 — About</span>
+                <span class="section-label-text">07 — About</span>
             </div>
             <div class="section-title reveal d1">Who I <span>Am</span></div>
 
@@ -2720,9 +2829,7 @@
                                 <strong>modern web engineering and applied AI</strong> — I design schemas, integrate
                                 models, configure servers, and ship UIs that real people use.
                             </p>
-                            <p>I joined ASPL Tech Solutions as an intern in October 2025 and was <strong>promoted to
-                                    full-time developer within three months</strong> — because I took ownership,
-                                delivered on time, and treated every task like a production problem.</p>
+                            <p>I served as a Full Stack Developer at **ASPL Tech Solutions**, where I took ownership of production repositories and client deliveries from day one.</p>
                             <p>My research on AI-powered legal document analysis <strong>won Best Paper at
                                     NCRIE-2025</strong>. That work wasn't an academic exercise — it's a deployed,
                                 full-stack application backed by a fine-tuned BERT model trained on 510 real contracts.
@@ -2742,8 +2849,8 @@
                             <div class="about-meta-item">
                                 <div class="about-meta-label">Currently</div>
                                 <div class="about-meta-value">
-                                    <strong>Software Developer · ASPL Tech Solutions</strong>
-                                    Oct 2025 – Present · Bengaluru
+                                    <strong>Full Stack Developer · ASPL Tech Solutions</strong>
+                                    Oct 2025 – March 2026 · Bengaluru
                                 </div>
                             </div>
                             <div class="about-meta-divider"></div>
