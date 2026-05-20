@@ -2506,7 +2506,6 @@ footer {
     /* Premium visual indicators (fading edge-gradient mask) for horizontal swiping containers */
     .filter-tabs,
     .project-stack-chips,
-    .skill-chips,
     .skills-sidebar,
     .metrics-grid {
         mask-image: linear-gradient(to right, #000 0%, #000 85%, transparent 100%) !important;
@@ -2602,6 +2601,17 @@ footer {
     .skills-outer {
         grid-template-columns: 1fr !important;
         gap: 24px !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .skills-groups {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .skills-sidebar {
@@ -2707,6 +2717,8 @@ footer {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
+        overflow: hidden !important;
+        min-width: 0 !important;
     }
 
     .skill-chips {
@@ -2716,24 +2728,25 @@ footer {
         -webkit-overflow-scrolling: touch !important;
         gap: 8px !important;
         padding-bottom: 12px !important;
+        padding-right: 24px !important; /* Breathing room at the end of horizontal scroll */
         scrollbar-width: thin !important;
-        scrollbar-color: rgba(255, 61, 0, 0.45) rgba(255, 255, 255, 0.01) !important;
+        scrollbar-color: rgba(255, 61, 0, 0.6) rgba(255, 255, 255, 0.03) !important;
         width: 100% !important;
     }
 
     .skill-chips::-webkit-scrollbar {
         display: block !important;
-        height: 2.5px !important;
+        height: 5px !important;
     }
 
     .skill-chips::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.02) !important;
-        border-radius: 4px !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border-radius: 10px !important;
     }
 
     .skill-chips::-webkit-scrollbar-thumb {
-        background: rgba(255, 61, 0, 0.45) !important;
-        border-radius: 4px !important;
+        background: rgba(255, 61, 0, 0.6) !important;
+        border-radius: 10px !important;
     }
 
     .skill-chip-interactive {
@@ -2837,6 +2850,8 @@ footer {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
+        overflow: hidden !important;
+        min-width: 0 !important;
     }
     
     .skill-chip-interactive {
