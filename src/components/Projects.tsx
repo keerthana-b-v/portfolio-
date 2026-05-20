@@ -212,7 +212,7 @@ export default function Projects() {
 
             <div className="exp-divider" style={{ marginBottom: "20px" }}></div>
             
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "20px" }}>
+            <div className="project-stack-chips" style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "20px" }}>
               <span style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--text-3)", textTransform: "uppercase", letterSpacing: "0.05em", marginRight: "8px" }}>Stack &amp; Skills</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px", background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}>PyTorch</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px", background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}>Python</span>
@@ -403,7 +403,7 @@ export default function Projects() {
 
             <div className="exp-divider" style={{ marginBottom: "20px" }}></div>
             
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "20px" }}>
+            <div className="project-stack-chips" style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "20px" }}>
               <span style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--text-3)", textTransform: "uppercase", letterSpacing: "0.05em", marginRight: "8px" }}>Stack &amp; Skills</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px", background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}>Python</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px", background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}>LLM Fine-Tuning</span>
@@ -467,7 +467,7 @@ export default function Projects() {
 
             <div className="exp-divider" style={{ marginBottom: "20px" }}></div>
             
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+            <div className="project-stack-chips" style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
               <span style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--text-3)", textTransform: "uppercase", letterSpacing: "0.05em", marginRight: "8px" }}>Stack &amp; Skills</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px" }}>LLM Guardrails</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px" }}>Adversarial Testing</span>
@@ -523,7 +523,7 @@ export default function Projects() {
 
             <div className="exp-divider" style={{ marginBottom: "20px" }}></div>
             
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+            <div className="project-stack-chips" style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
               <span style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--text-3)", textTransform: "uppercase", letterSpacing: "0.05em", marginRight: "8px" }}>Stack &amp; Skills</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px", background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}>React</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px", background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}>Flask (Python)</span>

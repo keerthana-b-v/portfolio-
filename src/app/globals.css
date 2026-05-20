@@ -2502,6 +2502,32 @@ footer {
         padding: 0 16px !important;
     }
 
+    /* Keep summary metrics in one line with horizontal scroll on mobile */
+    .metrics-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 16px !important;
+        padding: 16px 12px !important;
+        scrollbar-width: none !important;
+        scroll-snap-type: x mandatory !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+
+    .metrics-grid::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .metrics-grid > div {
+        flex: 0 0 auto !important;
+        width: 110px !important;
+        scroll-snap-align: start !important;
+        text-align: center !important;
+    }
+
     .pipeline-flow-diagram {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
@@ -2584,15 +2610,41 @@ footer {
     .filter-tabs {
         width: 100% !important;
         display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 6px !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 8px !important;
+        padding-bottom: 6px !important;
+        scrollbar-width: none !important;
+    }
+
+    .filter-tabs::-webkit-scrollbar {
+        display: none !important;
     }
 
     .filter-tab {
-        flex-grow: 1 !important;
+        flex: 0 0 auto !important;
         text-align: center !important;
-        padding: 6px 8px !important;
-        font-size: 10px !important;
+        padding: 8px 14px !important;
+        font-size: 11px !important;
+    }
+
+    /* Project Stack Chips horizontal scroll on mobile */
+    .project-stack-chips {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-bottom: 8px !important;
+        scrollbar-width: none !important;
+        width: 100% !important;
+    }
+
+    .project-stack-chips::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .project-stack-chips span {
+        flex: 0 0 auto !important;
     }
 
     /* Skill Group card padding optimization */
@@ -2653,11 +2705,30 @@ footer {
         display: none !important;
     }
     
-    /* Ensure grids stack vertically */
+    /* Keep summary metrics in one line with horizontal scroll on mobile */
     .metrics-grid {
-        grid-template-columns: 1fr !important;
-        gap: 12px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 16px !important;
         padding: 16px 12px !important;
+        scrollbar-width: none !important;
+        scroll-snap-type: x mandatory !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+
+    .metrics-grid::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .metrics-grid > div {
+        flex: 0 0 auto !important;
+        width: 110px !important;
+        scroll-snap-align: start !important;
+        text-align: center !important;
     }
 
     .live-demo-grid,
