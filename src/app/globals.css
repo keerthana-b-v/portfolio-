@@ -2447,6 +2447,38 @@ footer {
    PREMIUM ULTRAPORTABLE & HIGH RESPONSIVENESS PATCHES
    ═══════════════════════════════════════ */
 
+/* Prevent horizontal scroll globally on html and body */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Ensure all key layout blocks never exceed viewport width */
+.container,
+.section,
+.hero-inner,
+.projects-grid,
+.exp-card,
+.research-card,
+.research-body,
+.research-metrics,
+.skills-outer,
+.skills-groups,
+.skills-controls,
+.skill-group,
+.detail-panel,
+.about-grid,
+.about-card,
+.about-main-grid,
+.live-demo-grid,
+.ai-bento-grid,
+.contact-inner,
+footer {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
 /* Pipeline Flow Diagrams */
 .pipeline-flow-diagram {
     display: grid !important;
@@ -2465,6 +2497,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+    /* Global safe container margins */
+    .container {
+        padding: 0 16px !important;
+    }
+
     .pipeline-flow-diagram {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
@@ -2475,10 +2512,17 @@ footer {
         margin: 6px 0 !important;
     }
     
-    /* Left-align stacked experience sub-headers on mobile */
+    /* Stack & Left-align experience headers on mobile */
+    .exp-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+    }
+
     .exp-header > div:last-child {
         text-align: left !important;
         align-items: flex-start !important;
+        width: 100% !important;
     }
     
     .exp-period,
@@ -2492,15 +2536,94 @@ footer {
         grid-template-columns: 1fr !important;
         padding: 0 !important;
         border: none !important;
+        width: 100% !important;
     }
 
     .pipeline-bullets {
         grid-template-columns: 1fr !important;
     }
+
+    /* Experience Card padding optimization */
+    .exp-card {
+        padding: 24px 20px !important;
+    }
+
+    /* Research Card styling on mobile */
+    .research-card {
+        grid-template-columns: 1fr !important;
+    }
+
+    .research-body {
+        padding: 24px 20px !important;
+    }
+
+    .research-metrics {
+        padding: 28px 20px !important;
+    }
+
+    /* Skills Controls & Layout overrides */
+    .skills-outer {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    .skills-sidebar {
+        margin-bottom: 24px !important;
+    }
+
+    .skills-controls {
+        padding: 16px 12px !important;
+        gap: 16px !important;
+    }
+
+    .search-wrapper {
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .filter-tabs {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+    }
+
+    .filter-tab {
+        flex-grow: 1 !important;
+        text-align: center !important;
+        padding: 6px 8px !important;
+        font-size: 10px !important;
+    }
+
+    /* Skill Group card padding optimization */
+    .skill-group {
+        padding: 20px 16px !important;
+    }
+
+    .skill-chips {
+        gap: 8px !important;
+    }
+
+    .skill-chip-interactive {
+        padding: 8px 12px !important;
+        font-size: 11.5px !important;
+    }
+
+    .detail-panel {
+        padding: 20px 16px !important;
+    }
 }
 
 /* Micro-screen adjustments (Phones <= 480px) */
 @media (max-width: 480px) {
+    /* Global safe container margins for very small screens */
+    .container {
+        padding: 0 12px !important;
+    }
+
+    .hero-inner {
+        padding: 32px 12px 24px !important;
+    }
 
     .hero-stats {
         grid-template-columns: repeat(4, 1fr) !important;
@@ -2530,13 +2653,39 @@ footer {
         display: none !important;
     }
     
+    /* Ensure grids stack vertically */
     .metrics-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        padding: 16px 12px !important;
+    }
+
+    .live-demo-grid,
+    .ai-bento-grid {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
     }
     
     .hero-headline {
-        font-size: clamp(34px, 10vw, 54px) !important;
+        font-size: clamp(30px, 9vw, 42px) !important;
+    }
+
+    /* Compact experience card padding on very small devices */
+    .exp-card {
+        padding: 20px 14px !important;
+    }
+
+    .skill-group {
+        padding: 16px 12px !important;
+    }
+    
+    .skill-chip-interactive {
+        padding: 6px 10px !important;
+        font-size: 11px !important;
+    }
+    
+    .detail-panel {
+        padding: 16px 12px !important;
     }
 }
 
