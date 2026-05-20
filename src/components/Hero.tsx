@@ -57,17 +57,8 @@ function StatCounter({ target, suffix, isFloat = false, label, isRank = false }:
   return (
     <div className="h-stat" ref={elementRef}>
       <div className="h-stat-n">
-        {isRank ? (
-          <>
-            {displayValue}
-            <span>{suffix}</span>
-          </>
-        ) : (
-          <>
-            {displayValue}
-            {suffix && <span style={{ fontSize: "26px", color: "var(--accent)" }}>{suffix}</span>}
-          </>
-        )}
+        {displayValue}
+        {suffix && <span>{suffix}</span>}
       </div>
       <div className="h-stat-l" dangerouslySetInnerHTML={{ __html: label }}></div>
     </div>

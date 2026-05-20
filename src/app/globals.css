@@ -451,6 +451,7 @@ nav.scrolled {
 }
 
 .h-stat-n span {
+    font-size: 26px;
     color: var(--accent);
 }
 
@@ -2070,10 +2071,6 @@ footer {
         flex-direction: row;
     }
 
-    .hero-stats {
-        grid-template-columns: 1fr 1fr;
-    }
-
     .projects-grid {
         grid-template-columns: 1fr;
     }
@@ -2203,8 +2200,25 @@ footer {
         padding: 64px 0;
     }
 
-    .hero-stats {
-        grid-template-columns: 1fr 1fr;
+    .h-stat {
+        padding: 12px 6px !important;
+        text-align: center !important;
+    }
+
+    .h-stat-n {
+        font-size: 20px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .h-stat-n span {
+        font-size: 13px !important;
+    }
+
+    .h-stat-l {
+        font-size: 8px !important;
+        margin-top: 4px !important;
+        line-height: 1.25 !important;
+        letter-spacing: 0.02em !important;
     }
 
     .exp-card {
@@ -2477,9 +2491,7 @@ footer {
 
 /* Micro-screen adjustments (Phones <= 480px) */
 @media (max-width: 480px) {
-    .hero-stats {
-        grid-template-columns: 1fr !important;
-    }
+
     
     .metrics-grid {
         grid-template-columns: 1fr !important;
