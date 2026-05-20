@@ -2505,6 +2505,7 @@ footer {
 
     /* Premium visual indicators (fading edge-gradient mask) for horizontal swiping containers */
     .filter-tabs,
+    .project-stack-chips,
     .skills-sidebar,
     .metrics-grid {
         mask-image: linear-gradient(to right, #000 0%, #000 85%, transparent 100%) !important;
@@ -2698,25 +2699,12 @@ footer {
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         padding-bottom: 8px !important;
-        padding-right: 24px !important; /* Breathing room at the end of horizontal scroll */
-        scrollbar-width: thin !important;
-        scrollbar-color: rgba(255, 61, 0, 0.6) rgba(255, 255, 255, 0.03) !important;
+        scrollbar-width: none !important;
         width: 100% !important;
     }
 
     .project-stack-chips::-webkit-scrollbar {
-        display: block !important;
-        height: 5px !important;
-    }
-
-    .project-stack-chips::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.03) !important;
-        border-radius: 10px !important;
-    }
-
-    .project-stack-chips::-webkit-scrollbar-thumb {
-        background: rgba(255, 61, 0, 0.6) !important;
-        border-radius: 10px !important;
+        display: none !important;
     }
 
     .project-stack-chips span {
