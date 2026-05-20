@@ -613,9 +613,9 @@ export default function Skills({ onShowBadges }: SkillsProps) {
             {/* List of Chips */}
             <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
               {filteredGroups.map((group) => (
-                <div className="skill-group" key={group.category} style={{ padding: "24px 32px" }}>
-                  <div className="skill-group-name" style={{ fontSize: "11px", letterSpacing: "0.14em" }}>{group.category}</div>
-                  <div className="skill-chips" style={{ gap: "10px" }}>
+                <div className="skill-group" key={group.category}>
+                  <div className="skill-group-name">{group.category}</div>
+                  <div className="skill-chips">
                     {group.skills.map((skill) => (
                       <button
                         key={skill.name}
