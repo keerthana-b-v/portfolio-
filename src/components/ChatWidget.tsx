@@ -202,7 +202,7 @@ export default function ChatWidget() {
           onClick={handleToggle}
           className="chat-trigger" 
           aria-label={isOpen ? "Close Chat" : "Open Chat"}
-          style={{ pointerEvents: "auto" }}
+          style={{ pointerEvents: "auto", padding: 0, overflow: "hidden" }}
         >
           {isOpen ? (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: "24px", height: "24px" }}>
@@ -210,11 +210,7 @@ export default function ChatWidget() {
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           ) : (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: "24px", height: "24px" }}>
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              <line x1="12" y1="8" x2="12" y2="12" />
-              <line x1="8" y1="10" x2="16" y2="10" />
-            </svg>
+            <img src="/bot-avatar.png" alt="Bot Avatar" className="chat-trigger-avatar" />
           )}
         </button>
       </div>
@@ -225,7 +221,10 @@ export default function ChatWidget() {
         style={{ display: isOpen ? "flex" : "none" }}
       >
         <div className="chat-header">
-          <div className="chat-header-title">Ask about Keerthana's work</div>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <img src="/bot-avatar.png" alt="Bot Avatar" className="chat-header-avatar" />
+            <div className="chat-header-title">Ask about Keerthana's work</div>
+          </div>
           <button onClick={handleToggle} aria-label="Close Chat" className="chat-close-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: "18px", height: "18px" }}>
               <line x1="18" y1="6" x2="6" y2="18" />
@@ -236,21 +235,29 @@ export default function ChatWidget() {
         
         <div className="chat-messages">
           {/* Welcome Message */}
-          <div className="chat-message assistant">
-            Hi! I am Keerthana's AI assistant. Ask me anything about her projects, stack, or experience.
+          <div className="chat-message-container assistant">
+            <img src="/bot-avatar.png" alt="Bot Avatar" className="chat-avatar" />
+            <div className="chat-message assistant">
+              Hi! I am Keerthana's AI assistant. Ask me anything about her projects, stack, or experience.
+            </div>
           </div>
 
           {/* Chat Transcript */}
           {messages.map((msg, index) => (
             <div 
-              className={`chat-message ${msg.sender}`} 
+              className={`chat-message-container ${msg.sender}`} 
               key={index}
             >
-              {msg.text === "" && msg.sender === "assistant" && msg.isStreaming ? (
-                <span className="loading-dots">Thinking</span>
-              ) : (
-                msg.text
+              {msg.sender === "assistant" && (
+                <img src="/bot-avatar.png" alt="Bot Avatar" className="chat-avatar" />
               )}
+              <div className={`chat-message ${msg.sender}`}>
+                {msg.text === "" && msg.sender === "assistant" && msg.isStreaming ? (
+                  <span className="loading-dots">Thinking</span>
+                ) : (
+                  msg.text
+                )}
+              </div>
             </div>
           ))}
 
