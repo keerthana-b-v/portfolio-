@@ -100,7 +100,7 @@ export default function Nav() {
 
       <div className="nav-right">
         <a
-          href="https://github.com/keerthana-b-v/portfolio-"
+          href="https://github.com/keerthana-b-v"
           target="_blank"
           rel="noopener noreferrer"
           className="nav-github"
@@ -193,7 +193,7 @@ export default function Nav() {
           </li>
           <li style={{ marginTop: "12px", borderTop: "1px solid rgba(255, 255, 255, 0.1)", paddingTop: "12px", display: "flex", gap: "10px" }}>
             <a
-              href="https://github.com/keerthana-b-v/portfolio-"
+              href="https://github.com/keerthana-b-v"
               target="_blank"
               rel="noopener noreferrer"
               style={{ 
