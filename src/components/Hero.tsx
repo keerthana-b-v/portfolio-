@@ -81,9 +81,9 @@ export default function Hero() {
         </div>
 
         <h1 className={`hero-headline reveal d1 ${isVisible ? "visible" : ""}`}>
-          Full Stack<br />
-          <span className="accent">Developer</span><br />
-          <span className="outline">+ Applied AI</span>
+          AI Agent<br />
+          <span className="accent">&amp; Automation</span><br />
+          <span className="outline">Builder</span>
         </h1>
 
         <div className={`hero-sub-row reveal d2 ${isVisible ? "visible" : ""}`}>
