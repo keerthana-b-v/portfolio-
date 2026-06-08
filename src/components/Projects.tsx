@@ -428,14 +428,26 @@ export default function Projects() {
             </div>
           </div>
 
-          {/* P5: E-Commerce Return Policy Chatbot */}
+          {/* P5: E-Commerce Customer Support Agent */}
           <div className={`exp-card reveal d5 ${isVisible ? "visible" : ""}`}>
             <div className="exp-header" style={{ marginBottom: "16px" }}>
               <div>
-                <div className="exp-company" style={{ fontSize: "26px" }}>E-Commerce Return Policy Chatbot</div>
-                <div className="exp-role">AI Developer · RAG Architecture &amp; Guardrails</div>
+                <div className="exp-company" style={{ fontSize: "26px" }}>E-Commerce Customer Support Agent</div>
+                <div className="exp-role">AI Developer · RAG Architecture &amp; Analytics</div>
               </div>
-              <div style={{ textAlign: "right" }}>
+              <div style={{ textAlign: "right", display: "flex", gap: "12px", justifyContent: "flex-end" }}>
+                <a
+                  href="https://keerthana-b-v-e-commerce-return-policy-chatbot-app-devsk5.streamlit.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="research-link primary"
+                  style={{ background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}
+                >
+                  Live App
+                  <svg className="brand-icon" style={{ width: "14px", height: "14px", fill: "none", stroke: "currentColor", strokeWidth: "2", marginLeft: "6px" }} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
                 <a
                   href="https://github.com/keerthana-b-v/E-Commerce-Return-Policy-Chatbot"
                   target="_blank"
@@ -451,23 +463,31 @@ export default function Projects() {
             </div>
             
             <p className="hero-desc" style={{ fontSize: "15px", marginBottom: "24px", maxWidth: "960px" }}>
-              An interactive web-based chatbot designed to act as an automated customer support agent for an e-commerce store, securely answering questions by querying a specific company policy document.
+              I built an intelligent, end-to-end customer support agent designed to handle e-commerce queries. Instead of relying on a generic LLM that is prone to hallucination, I engineered a Retrieval-Augmented Generation (RAG) pipeline that securely scans an internal knowledge base of shipping, return, and warranty policies to provide fact-based answers instantly.
             </p>
 
             <div className="pexi" style={{ padding: 0, border: "none", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", marginBottom: "24px", gap: "20px" }}>
               <div className="e-problem">
-                <p className="ebl">The Setup</p>
-                <p className="ebt">Instead of relying on general internet knowledge, the chatbot is powered by a RAG pipeline using FAISS and HuggingFace embeddings to search the specific policy.</p>
+                <p className="ebl">CRM Context Injection</p>
+                <p className="ebt">Designed a simulation panel that dynamically pulls mock customer data (Names &amp; Order IDs) into the AI&apos;s memory. This allows the bot to greet users personally and provide order-specific assistance, mimicking real enterprise CRM integrations.</p>
               </div>
               <div className="e-solution">
-                <p className="ebl">The Processing</p>
-                <p className="ebt">Integrated the lightning-fast Groq API with the Llama-3.1 model to provide instant, human-like, conversational responses to customer queries.</p>
+                <p className="ebl">Automated Ticketing &amp; Escalation</p>
+                <p className="ebt">Built a smart routing protocol for human handoff. If the AI detects an issue requires human intervention, it automatically bypasses the LLM, generates a unique support Ticket ID, and logs the customer&apos;s chat history to an external database.</p>
               </div>
               <div className="e-decision">
-                <p className="ebl">Key Engineering Feature</p>
-                <p className="ebt">Implemented strict guardrails using LangChain. If a user asks a question not covered in the return policy, the bot recognizes the boundary and politely refuses to answer, preventing AI hallucination.</p>
+                <p className="ebl">Strict Anti-Hallucination Guardrails</p>
+                <p className="ebt">Implemented robust Prompt Engineering to mathematically bound the AI. The agent is strictly forbidden from answering off-topic questions and will gracefully pivot the user back to supported topics.</p>
+              </div>
+              <div className="e-result">
+                <p className="ebl">Interaction Analytics</p>
+                <p className="ebt">Engineered a background logging system that records every user query and timestamp to a database, simulating the data pipelines needed for enterprise Conversation Intelligence and sentiment analysis.</p>
               </div>
             </div>
+
+            <p className="hero-desc" style={{ fontSize: "15px", marginBottom: "24px", maxWidth: "960px", fontStyle: "italic", fontWeight: 500 }}>
+              The Result: A highly focused, lightning-fast AI agent that reduces the burden on human support teams while maintaining a safe, professional, and personalized experience for the customer.
+            </p>
 
             <div className="exp-divider" style={{ marginBottom: "20px" }}></div>
             
@@ -475,7 +495,7 @@ export default function Projects() {
               <span style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--text-3)", textTransform: "uppercase", letterSpacing: "0.05em", marginRight: "8px" }}>Stack &amp; Skills</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px", background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}>Python</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px", background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}>LangChain</span>
-              <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px", background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}>Groq API (Llama 3)</span>
+              <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px", background: "rgba(255, 61, 0, 0.1)", borderColor: "rgba(255, 61, 0, 0.25)", color: "var(--accent)" }}>Groq API (Llama 3.1)</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px" }}>Streamlit</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px" }}>FAISS</span>
               <span className="skill-chip" style={{ padding: "4px 10px", fontSize: "11px" }}>HuggingFace</span>
